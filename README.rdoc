@@ -1,6 +1,3 @@
-# ec.espol.edu.ec
-
-
 http://cec.espol.edu.ec/siec.png
 
 http://cec.espol.edu.ec/siec2.png
