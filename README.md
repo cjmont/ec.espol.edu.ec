@@ -1,6 +1,4 @@
-http://cec.espol.edu.ec/siec.png
-
-http://cec.espol.edu.ec/siec2.png
+ec.espol.edu.ec
 
 Sitio web administrable para la gestion de Educacion Continua ESPOL.
 
