@@ -1,0 +1,467 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="background-div">
+         <BR>Agenda de Eventos<BR><BR>
+</div>
+<%= stylesheet_link_tag    'eventos', media: 'all', 'data-turbolinks-track' => true %>
+<br><br>
+<div class="container">
+<br>
+    <div class="agenda">
+        <div style="font-size: 22px;">
+            <%= form_tag  method: :get do %>
+
+            <div class="agenda-border">
+            <br>
+                <p style="margin-left: 40%; opacity: 1; color: #fff" >  
+                        Seleccione el mes:
+                    <%= render 'shared/message' %>                    
+                   <span style="margin-left: 2%; color:  #000000;"><%= month_field( :fecha_select, value = nil , min: Date.today, :style => "width: 240px")  %></span>
+                    <p style="margin-left: 50%;""><%= submit_tag "Buscar", curso: nil %></p>
+                </p>
+               <br> 
+            </div>
+            <br>
+
+            <ul class="nav nav-tabs" class="col-xs6 col-md-4" >
+                <li ><a data-toggle="tab" href="#todos" onclick="CambiaEstados();">
+                <div style="font-size: 20px; margin-top: 20px;">Todos</div></a></li>
+                <li><a data-toggle="tab" href="#programa" onclick="CambiaEstados();">
+                     <div style="width: 70px;"><%= image_tag('Calendario/iconp.png')%></div></a></li>
+                <li><a data-toggle="tab" href="#cursos" onclick="CambiaEstados();">
+                <div style="width: 70px;"><%= image_tag('Calendario/iconcu.png')%></div></a></li>
+                <li><a data-toggle="tab" href="#conferencias" onclick="CambiaEstados();">
+                <div style="width: 70px;"><%= image_tag('Calendario/iconc.png')%></div></a></li>
+            </ul>
+
+            <% if params[:fecha_select].nil? %> 
+                <%@cont=0%>
+                <%@fecha_actual_end = Time.now%>
+               <%fecha_actual=Time.now%>
+               <%@fecha_actual_end = @fecha_actual_end.strftime("%y-%m-%d") %>
+
+               <% if ((@fecha_actual.to_datetime.strftime("%m") == '01') or (@fecha_actual.to_datetime.strftime("%m") == '03') or (@fecha_actual.to_datetime.strftime("%m") == '05') or (@fecha_actual.to_datetime.strftime("%m") == '07') or (@fecha_actual.to_datetime.strftime("%m") == '08') or (@fecha_actual.to_datetime.strftime("%m") == '10') or (@fecha_actual.to_datetime.strftime("%m") == '12'))%>
+                    
+                        <% @fecha_actual_end = @fecha_actual.to_datetime.strftime("%y")+"-"+@fecha_actual.to_datetime.strftime("%m")+"-"+"31" %>
+                    <%else%>
+                        <% @fecha_actual_end = @fecha_actual.to_datetime.strftime("%y")+"-"+@fecha_actual.to_datetime.strftime("%m")+"-"+"30" %>
+                    <%end%>
+           
+            <%else %> 
+                <% @fecha_start = params[:fecha_select].first + '-01' %>
+                <% if ((@fecha_start.to_datetime.strftime("%m") == '01') or (@fecha_start.to_datetime.strftime("%m") == '03') or (@fecha_start.to_datetime.strftime("%m") == '05') or (@fecha_start.to_datetime.strftime("%m") == '07') or (@fecha_start.to_datetime.strftime("%m") == '08') or (@fecha_start.to_datetime.strftime("%m") == '10') or (@fecha_start.to_datetime.strftime("%m") == '12'))
+                     
+                        @fecha_end = params[:fecha_select].first + '-31' %>
+                    <%else%>
+                        <% @fecha_end = params[:fecha_select].first + '-30' %>
+                    <%end%>
+                    <% @fecha_actual_end = @fecha_end.to_datetime.strftime("%y-%m-%d")  %>
+                    <% @fecha_actual = @fecha_start.to_datetime %>
+
+                    <br><br>
+
+                    <%= @fecha_actual.strftime("%B")%>
+
+             <% end %>
+                <h1 style=" color: #9FA0A3; padding-top: 20px;" class="text-uppercase class="agenda-date"">
+
+                <% if @fecha_actual.strftime("%B")=="January" %> Enero
+                                                        <% elsif @fecha_actual.strftime("%B")=="February" %> Febrero
+                                                        <% elsif @fecha_actual.strftime("%B")=="March" %> Marzo
+                                                        <% elsif @fecha_actual.strftime("%B")=="April" %> Abril
+                                                        <% elsif @fecha_actual.strftime("%B")=="May" %> Mayo
+                                                        <% elsif @fecha_actual.strftime("%B")=="June" %> Junio
+                                                        <% elsif @fecha_actual.strftime("%B")=="July" %> Julio
+                                                        <% elsif @fecha_actual.strftime("%B")=="August" %> Agosto
+                                                        <% elsif @fecha_actual.strftime("%B")=="September" %> Septiembre
+                                                        <% elsif @fecha_actual.strftime("%B")=="October" %> Octubre
+                                                        <% elsif @fecha_actual.strftime("%B")=="November" %> Noviembre
+                                                        <% elsif @fecha_actual.strftime("%B")=="December" %> Diciembre
+                                                    <% else %> 
+                                                    <% end %> del  <%= @fecha_actual.year %>
+               </h1>
+
+
+           
+            
+            <!-- TODOS -->
+            <div class="tab-content">
+                <div id="todos" class="tab-todos tab-pane fade active in  ">
+                    <p>
+                        <div class="table-responsive" style="width: 750px; margin-left:200px;">
+                            <br>
+                            <div style="font-size: 22px;">            
+                                <table class="table table-condensed table-bordered">
+                                    <thead >
+                                        <tr>
+                                            <th class="table-th">Fecha</th>
+                                            <th class="table-th">Hora</th>
+                                            <th class="table-th">Tipo</th>              
+                                            <th class="table-th" style="width: 230px;">Evento</th>
+                                        </tr>
+                                    </thead>
+               
+                                    <tbody>
+                                    <!-- Single event in a single day -->
+                                    <% @n_eventos = 0 %>
+                                        
+
+                                        <% @calendarios.where("fecha_inicio >= ? and fecha_inicio <= ?", @fecha_actual.strftime("%y-%m-%d"), @fecha_actual_end).order("fecha_inicio").each do |calendario| %>
+
+                                        <% @n_eventos = @n_eventos + 1 %>
+                                        <tr>
+                                            <td class="agenda-date" class="active" rowspan="1">               
+                                                <div class="dayofmonth">
+                                                <%= calendario.fecha_inicio.strftime("%d") %> 
+                                                </div>
+
+                                                <% if calendario.fecha_inicio.strftime("%A")=="Sunday" %> Domingo
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Monday" %> Lunes
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Tuesday" %> Martes
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Wednesday" %> Mi&eacute;rcoles
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Thursday" %> Jueves
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Friday" %> Viernes
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Saturday" %> S&aacute;bado
+                                                <% else %> 
+                                                <% end %>
+                                                <div class="dayofweek">
+                                                    <% if calendario.fecha_inicio.strftime("%B")=="January" %> Enero
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="February" %> Febrero
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="March" %> Marzo
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="April" %> Abril
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="May" %> Mayo
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="June" %> Junio
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="July" %> Julio
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="August" %> Agosto
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="September" %> Septiembre
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="October" %> Octubre
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="November" %> Noviembre
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="December" %> Diciembre
+                                                    <% else %> 
+                                                    <% end %>
+                                                </div>
+                                                <!-- end dayofweek-->
+                                                <div class="shortdate text-muted"> 
+                                                    <%= calendario.fecha_inicio.year %>
+                                                </div>
+                                            </td>
+                                            <td class="agenda-time" >
+                                               <div style="margin-top: 18px; margin-left: 10px; margin-right: 10px;"> <%= calendario.fecha_inicio.strftime("%R") %></div>
+                                            </td>
+                                             <td class="agenda-time">
+                                               <%if calendario.curso.nil?  %>  
+                                                    <%if calendario.programa.nil?  %>
+                                                        <div style="margin-top: 18px; margin-left: 10px; margin-right: 10px;">Conferencia</div>
+                                                    <% else  %> 
+                                                        <div style="margin-top: 18px; margin-left: 10px; margin-right: 10px;">Programa</div>
+                                                    <% end %>
+                                                <% else  %> 
+                                                    <div style="margin-top: 18px; margin-left: 10px; margin-right: 10px;;">Curso</div>
+                                                <% end %>
+                                            </td>
+                                            <td class="agenda-events">
+                                                <div class="agenda-event">
+                                                    <%if calendario.curso.nil?  %>  
+                                                    <%if calendario.programa.nil?  %>
+                                                        <div style="margin-top: 18px; margin-left: 10px; margin-right: 10px;"><%= calendario.seminario.titulo  %></div>
+                                                    <% else  %> 
+                                                        <div style="margin-top: 18px; margin-left: 10px; margin-right: 10px;"><%= calendario.programa.titulo  %></div>
+                                                    <% end %>
+                                                <% else  %> 
+                                                    <div style="margin-top: 18px; text-align: center;"><%= calendario.curso.titulo  %></div>
+                                                <% end %>
+                                                </div><!--end agenda-event-->
+                                            </td>
+                                        </tr>     
+                                        <% end %>
+
+                                        <%if @n_eventos == 0 %>
+                                            <th colspan="4"> 
+                                            <br>
+                                                <div style="text-align: center;">No hay eventos agendados en el Calendario </div><br>
+                                            </th> 
+                                        <% else%>
+                                        <%end%> 
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                        </div><!--end table-responsive-->
+                    </p>
+                </div><!-- end todos-->
+
+
+                <!-- P  R  O  G  R  A  M  A  -->
+                
+                <div id="programa" class="tab-programas tab-pane fade">
+                    <p>
+                        <div class="table-responsive" style="width: 700px; margin-left:200px;">
+                            
+
+                                <table class="table table-condensed table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-th">Fecha</th>
+                                            <th class="table-th">Hora</th>
+                                            <th class="table-th" style="width: 230px;">Evento</th>
+                                        </tr>
+                                    </thead>
+                   
+                                    <tbody>
+                                         <% @n_eventos = 0 %> 
+                                    
+                                        <!-- Single event in a single day -->
+                                        <% @calendarios.where("fecha_inicio >= ? and fecha_inicio <= ? and programa_id > 0", @fecha_actual.strftime("%y-%m-%d"), @fecha_actual_end).order("fecha_inicio").each do |calendario| %>
+                                        <%if calendario.programa.nil? %>
+                                        
+                                        <% else %>
+                                        
+                                        <% @n_eventos = @n_eventos + 1 %>     
+                                        <tr>             
+                                            <td class="agenda-date" class="active" rowspan="1">
+                                                <div class="dayofmonth"><%= calendario.fecha_inicio.strftime("%d") %> </div>
+                                                <% if calendario.fecha_inicio.strftime("%A")=="Sunday" %> Domingo
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Monday" %> Lunes
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Tuesday" %> Martes
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Wednesday" %> Mi&eacute;rcoles
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Thursday" %> Jueves
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Friday" %> Viernes
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Saturday" %> S&aacute;bado
+                                                <% else %> 
+                                                <% end %>
+                                                <div class="dayofweek">
+                                                    <% if calendario.fecha_inicio.strftime("%B")=="January" %> Enero
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="February" %> Febrero
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="March" %> Marzo
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="April" %> Abril
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="May" %> Mayo
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="June" %> Junio
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="July" %> Julio
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="August" %> Agosto
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="September" %> Septiembre
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="October" %> Octubre
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="November" %> Noviembre
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="December" %> Diciembre
+                                                    <% else %> 
+                                                    <% end %>
+                                                </div> <!-- end dayofweek-->
+                                                <div class="shortdate text-muted"> 
+                                                    <%= calendario.fecha_inicio.year %></div>
+                                            </td>
+                                            <td class="agenda-time">
+                                                <div style="margin-top: 18px; margin-left: 10px; margin-right: 10px;"><%= calendario.fecha_inicio.strftime("%R") %></div>   
+                                            </td>               
+                                            <td class="agenda-events">
+                                                <div class="agenda-event">
+                                                    <div style="margin-top: 18px; text-align: center;"><%= calendario.programa.titulo  %></div>
+                                                </div>
+                                            </td>
+                                        </tr>    
+                                        <% end %>   
+                                        <% end %>
+                                        <%if @n_eventos == 0 %>
+                                            <th colspan="4"> 
+                                            <br>
+                                                <div style="text-align: center;">No hay programas agendados en el Calendario </div><br>
+                                            </th> 
+                                        <% else%>
+                                        <%end%> 
+                                    </tbody>
+                                </table>
+                            
+                        </div>
+                    </p>     
+                </div><!--  F  I  N  P R O G R A M A-->
+
+                <!-- C  U  R  S  O  S  -->
+                <div id="cursos" class="tab-cursos tab-pane fade">
+                    <p>
+                        <div class="table-responsive" style="width: 700px; margin-left:200px;">
+                            
+                            <table class="table table-condensed table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="table-th">Fecha</th>
+                                        <th class="table-th">Hora</th>
+                                        <th class="table-th" style="width: 230px;">Evento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @n_eventos = 0 %> 
+                                    <!-- Single event in a single day -->
+                                    <% @calendarios.where("fecha_inicio >= ? and fecha_inicio <= ? and curso_id > 0", @fecha_actual.strftime("%y-%m-%d"), @fecha_actual_end).order("fecha_inicio").each do |calendario| %>
+                                        <%if calendario.curso.nil? %>
+
+                                        <% else %> 
+                                          
+                                        <% @n_eventos = @n_eventos + 1 %>   
+                                        <tr>
+                                            <td class="agenda-date" class="active" rowspan="1">                  
+                                                <div class="dayofmonth"><%= calendario.fecha_inicio.strftime("%d") %> </div>
+                                                <% if calendario.fecha_inicio.strftime("%A")=="Sunday" %> Domingo
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Monday" %> Lunes
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Tuesday" %> Martes
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Wednesday" %> Mi&eacute;rcoles
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Thursday" %> Jueves
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Friday" %> Viernes
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Saturday" %> S&aacute;bado
+                                                <% else %> 
+                                                <% end %>
+                                                <div class="dayofweek">
+                                                    <% if calendario.fecha_inicio.strftime("%B")=="January" %> Enero
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="February" %> Febrero
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="March" %> Marzo
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="April" %> Abril
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="May" %> Mayo
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="June" %> Junio
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="July" %> Julio
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="August" %> Agosto
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="September" %> Septiembre
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="October" %> Octubre
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="November" %> Noviembre
+                                                         <% elsif calendario.fecha_inicio.strftime("%B")=="December" %> Diciembre
+                                                         <% else %> 
+                                                    <% end %>
+                                                </div> <!--end dayofweek-->
+                                                <div class="shortdate text-muted"> 
+                                                <%= calendario.fecha_inicio.year %></div>
+                                            </td>
+                                            <td class="agenda-time">
+                                                <div style="margin-top: 18px; text-align: center;"><%= calendario.fecha_inicio.strftime("%R") %></div> 
+                                            </td>                   
+                                            <td class="agenda-events">
+                                                <div class="agenda-event">
+                                                    <div style="margin-top: 18px; margin-left: 10px; margin-right: 10px;"><%= calendario.curso.titulo  %> 
+                                                    </div>                                      
+                                                </div>
+                                            </td>
+                                        </tr>                    
+                                        <% end %>
+                                    <% end %>
+                                    <%if @n_eventos == 0 %>
+                                        <th colspan="4"> 
+                                        <br>
+                                            <div style="text-align: center;">No hay cursos agendados en el Calendario </div><br>
+                                        </th> 
+                                    <% else%>
+                                    <%end%> 
+                                </tbody>
+                            </table>
+                           
+                        </div><!-- end table responsive-->
+                    </p>
+                </div><!-- F  I  N  C U R S O S-->
+
+                <!-- C  O  N  F  E  R  E  N  C  I  A  S  -->
+                <div id="conferencias" class=" tab-conferencias tab-pane fade">      
+                    <p>
+                        <div class="table-responsive" style="width: 700px; margin-left:200px;">
+                             
+                            <table class="table table-condensed table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="table-th">Fecha</th>
+                                        <th class="table-th">Hora</th>
+                                        <th class="table-th" style="width: 230px;">Evento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @n_eventos = 0 %>
+                                    <!-- Single event in a single day -->
+                                    <% @calendarios.where("fecha_inicio >= ? and fecha_inicio <= ? and seminario_id > 0", @fecha_actual.strftime("%y-%m-%d"), @fecha_actual_end).order("fecha_inicio").each do |calendario| %>
+                                        <%if calendario.seminario.nil? %>
+
+                                        <% else %>
+                                          
+                                        <% @n_eventos = @n_eventos + 1 %>
+                                            <tr>
+                                                <td class="agenda-date" class="active" rowspan="1">       
+                                                    <div class="dayofmonth"><%= calendario.fecha_inicio.strftime("%d") %> </div>
+                                                    <% if calendario.fecha_inicio.strftime("%A")=="Sunday" %> Domingo
+                                                         <% elsif calendario.fecha_inicio.strftime("%A")=="Monday" %> Lunes
+                                                         <% elsif calendario.fecha_inicio.strftime("%A")=="Tuesday" %> Martes
+                                                         <% elsif calendario.fecha_inicio.strftime("%A")=="Wednesday" %> Mi&eacutercoles
+                                                         <% elsif calendario.fecha_inicio.strftime("%A")=="Thursday" %> Jueves
+                                                         <% elsif calendario.fecha_inicio.strftime("%A")=="Friday" %> Viernes
+                                                         <% elsif calendario.fecha_inicio.strftime("%A")=="Saturday" %> S&aacutebado
+                                                         <% else %> 
+                                                    <% end %>
+                                                    <div class="dayofweek">
+                                                        <% if calendario.fecha_inicio.strftime("%B")=="January" %> Enero
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="February" %> Febrero
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="March" %> Marzo
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="April" %> Abril
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="May" %> Mayo
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="June" %> Junio
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="July" %> Julio
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="August" %> Agosto
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="September" %> Septiembre
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="October" %> Octubre
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="November" %> Noviembre
+                                                             <% elsif calendario.fecha_inicio.strftime("%B")=="December" %> Diciembre
+                                                             <% else %> 
+                                                        <% end %>
+                                                    </div>
+                                                    <div class="shortdate text-muted"> 
+                                                    <%= calendario.fecha_inicio.year %></div>
+                                                </td>
+                                                <td class="agenda-time">
+                                                    <div style="margin-top: 18px; margin-left: 10px; margin-right: 10px;"><%= calendario.fecha_inicio.strftime("%R") %> 
+                                                    </div>       
+                                                </td>                   
+                                                <td class="agenda-events">
+                                                    <div class="agenda-event">
+                                                        <!--i class="glyphicon glyphicon-repeat text-muted" title="Repeating event"></i-->                     
+                                                        <div style="text-align: center;"><%= calendario.seminario.titulo  %> </div>   
+                                                    </div>
+                                                </td>
+                                            </tr>                
+                                        <% end %>
+                                    <% end %>
+                                    <%if @n_eventos == 0 %>
+                                        <th colspan="4"> 
+                                        <br>
+                                            <div style="text-align: center;">No hay conferencias agendadas en el Calendario </div><br>
+                                        </th> 
+                                    <% else%>
+                                    <%end%> 
+                                </tbody>
+                            </table>
+                           
+                        </div><!-- end table responsive-->
+                    </p>
+                </div><!-- F  I  N   C  O  N  F  E  R  E  N  C  I  A  S-->  
+            </div> <!-- end Tab content--> 
+            <% end %><!--Buscador-->
+        </div>
+    <%= javascript_include_tag 'calendarios' %>
+    </div><!-- CLASS AGENDA -->     
+</div><!-- CONTAINER  --> <br><br>
+
+
+      
+
+
+      
+       
+
+  
+
+
+          

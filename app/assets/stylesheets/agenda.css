@@ -1,0 +1,61 @@
+.agenda-searchBar-container{
+	height: 80px;
+	margin: 40px 0px 0px 0px;
+	padding: 20px 0px;
+	display: flex;
+	background-color: #371743;
+}
+.agenda-searchFecha-container,
+.agenda-searchNombre-container {
+	display: flex;
+	height: 45px;
+}
+.agenda-searchBar-h3 {
+	color: white;
+	margin: 3px 10px 0px 0px;
+}
+.agenda-searchBar-input {
+	margin: 0px !important;
+}
+.agenda-searchBar-btn {
+	margin:  0px 15px 0px 0px;
+	color: white;
+	background-color: #371743;
+	border: 1px solid white;
+}
+.agenda-calendario-container {
+	margin: 20px 0px 50px 0px;
+}
+.agenda-titulo-row-container {
+	margin: 30px 0px 0px 0px;
+}
+.agenda-titulo-row-container h3 {
+	text-align: center;
+}
+.tabla-header {
+	background-color: #371743;
+	height: 20px;
+}
+.tabla-header th,
+.tabla-fila td {
+	height: 20vh;
+}
+.tabla-header th {
+	text-align: center;
+	width: 10%;
+	height: 50px;
+	min-width: 50px;
+	padding: 14px !important;
+	color: white;
+	border: 1px solid #010638;
+}
+.tabla-fila td {
+	padding: 0px !important;
+	max-height: 100px;
+	min-height: 70px;
+	border: 1px solid black;
+}
+.tabla-fila td p {
+	text-align: right;
+	background-color: lightgray;
+}

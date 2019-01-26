@@ -1,0 +1,8 @@
+<% @lista.item_calendarios.each do |item| %>
+	<ul>
+		<li>
+			<%= item.cantidad %>&times;<%= item.calendario.curso.titulo %>
+			<%= number_to_currency item.total_precio %>
+		</li>
+	</ul>
+<% end %>

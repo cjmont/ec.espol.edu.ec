@@ -1,0 +1,184 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<div class="background-div">
+    <BR>Conferencias<BR><BR>
+</div>
+<%= stylesheet_link_tag    'eventos', media: 'all', 'data-turbolinks-track' => true %>
+    <div class="container">
+    <section class="product-list">
+        <div class="container">
+
+            <% @seminarios.order("RAND()").each do |seminario| %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="product">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="thumbnail">
+                                        <%= image_tag seminario.imagen %>   
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="product-details">
+                                        <h2 class="product-title" style="font-size: 28px;" ><%= seminario.titulo %></h2>
+                                        <div style="margin-right: 15px; margin-top: -10px; text-align: justify;">
+                                             <p style="text-align: justify;"><%= simple_format seminario.descripcion %></p>
+                                        </div>
+                                    </div>
+                                </div>
+    <div class="col-md-12">
+        <div class="col-md-1 col-md-6 agenda-evento table-responsive" style="align-content: center;">
+           <%= paginate @seminarios %>
+                <table class="table table-condensed table-bordered">
+                    <thead>
+                        <th colspan="3" class="agenda-th1"> 
+                                <%= image_tag('calendario_servicio.png') %>Agenda          
+                            </th> 
+                            <tr>
+                                <th class="table-th1">Fecha</th>
+                                <th class="table-th1">Horario</th>
+                                <th class="table-th1">  </th>  
+                            </tr>           
+                        </thead>
+                            <tbody>
+                                <% @n_eventos = 0 %>
+
+                                    <% @calendarios.where("fecha_inicio >= ?", @fecha_actual).order("fecha_inicio").each do |calendario| %> 
+                                      
+                                    <%if calendario.seminario.nil? %>
+                                    <% else%>  
+                                        <%if calendario.seminario.id == seminario.id%>
+                                            <% @n_eventos = @n_eventos + 1 %>
+                                        <tr>
+                                            <td class="agendadateventos active" rowspan="1">
+                                                <div class="dayofmontheventos"><%= calendario.fecha_inicio.strftime("%d") %> 
+                                                </div>
+                                                <% if calendario.fecha_inicio.strftime("%A")=="Sunday" %> Domingo
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Monday" %> Lunes
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Tuesday" %> Martes
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Wednesday" %> Mi&eacutercoles
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Thursday" %> Jueves
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Friday" %> Viernes
+                                                     <% elsif calendario.fecha_inicio.strftime("%A")=="Saturday" %> S&aacutebado
+                                                    <% else %> 
+                                                    <% end %>
+                                                <div class="dayofweekeventos">
+                                                    <% if calendario.fecha_inicio.strftime("%B")=="January" %> Enero
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="February" %> Febrero
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="March" %> Marzo
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="April" %> Abril
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="May" %> Mayo
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="June" %> Junio
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="July" %> Julio
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="August" %> Agosto
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="September" %> Septiembre
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="October" %> Octubre
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="November" %> Noviembre
+                                                    <% elsif calendario.fecha_inicio.strftime("%B")=="December" %> Diciembre
+                                                    <% else %> 
+                                                    <% end %>
+                                                </div>
+                                                <div class="diaventos text-muted">
+                                                 <%= calendario.fecha_inicio.year %>
+                                                </div>
+                                            </td>
+
+                                            <% @registrado = false %>
+
+                                            <% @lista.item_calendarios.each do |item| %>
+ 
+                                                <%if item.calendario.seminario.nil? %>
+                                                    
+                                                <%else%>
+                                                    <%if item.calendario.seminario.id == calendario.seminario.id %>  
+                                                        <% @registrado = true %>  
+
+                                                    <%end%>
+
+                                                <%end%>     
+                                            <%end%>
+                                            <td style= "width: 50px; text-align: center; vertical-align: middle;">
+                                                <div style="margin-top: 18px; margin-left: 10px; margin-right: 10px;"><%= calendario.fecha_inicio.strftime("%R") %>
+                                                </div> 
+                                            </td>
+                                            <td colspan="1" style="text-align: center; vertical-align: middle;" >
+                                             <%if @registrado == false %>  
+
+                                                        <%= button_to item_calendarios_path(calendario_id: calendario), class: 'btn-mas_informacion btn-default' do %>
+                                                        <i class="fa fa-shopping-cart"></i> Inscribirse
+                                                        <%end%>       
+                                                   <% end %>
+                                            </td> 
+                                        </tr>   
+                                        <% else%>
+                                         <%end%>
+                                         <%end%>   
+                                     <% end %>
+                                        <%if @n_eventos == 0 %>
+                                            <th colspan="3"> 
+                                             <br>
+                                                <div style="text-align: center;">No hay eventos agendados </div><br>
+                                            </th> 
+                                            <% else%>
+                                            <%end%>  
+                                </tbody>
+                                <%= paginate @seminarios %>
+                            </table>
+                        </div>
+                    <div class="col-md-1 col-md-6 opciones table-responsive" style="align-content: center;">
+                       <table class="table table-condensed table-bordered" style="border-collapse: separate; border: #78707a 3px solid; border-radius: 5px;"> 
+                          <thead >
+                              <th class="opciones-th1" style="text-align: center; background-color: #cbc7cc; margin: 5px; padding: 10px; ">Opciones</th>
+                          </thead>
+                           <tbody >
+                              <tr>
+                                 <td class="opciones-td" style="text-align: left;"><%= image_tag('descargar.png')%> &nbspDescargar</td>
+                              </tr>
+                            <tr>
+                              <td class="opciones-td" style="text-align: left;"><%= image_tag('informacion.png')%><%= link_to 'Solicitar', contactenos_path %></td>
+                            </tr>
+                            <tr>
+                                <td class="opciones-td" style="text-align: left;">
+
+                             <% @url = 'http://cec.espol.edu.ec:8088/seminario' %>
+
+                             <%= render_shareable :buttons=> ['facebook'] , :facebook=> {:send=> 'true', :url=> @url} %>
+                             </td>
+                         </tr>
+                    </tbody> 
+                  </table> 
+                  <div style="text-align: center;">
+                    
+                  </div>
+                 </div>
+            </div> 
+        </div>
+                                    
+                                
+                            </div><!-- /.row -->
+                        </div><!-- /.product -->
+                    </div>
+                </div><!-- /.row -->
+            <% end %>
+
+        </div>
+    </section>
+</div>
+
+

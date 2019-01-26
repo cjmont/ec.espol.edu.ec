@@ -1,0 +1,44 @@
+.navbar-main-row-container {
+	display: flex;
+}
+.navbar-logoEspol-container {
+	width: 200px;
+}
+.imgLogoEspol {
+	max-width: none;
+}
+.logoEC {
+	height: 60px;
+}
+#search-btn{
+	padding: 0px;
+}
+#search-btn:focus {
+	outline: 0px;
+}
+.navbarRes-search-icon {
+	display: block;
+	font-size: 20px;
+	margin-right: 10px;
+}
+.modal-dialog{
+	width: 100%;
+	display: none;
+}
+.buscontenedor{
+	width: 100%;
+    height: auto;
+    padding-top: 4px;
+}
+#search_result {
+	margin-left: 0%;
+}
+#custom-search-input{
+	margin-left: 0%;
+}
+.col-lg-10 {
+    width: 100%;
+}
+#custom-search-input input{
+	background-color: #e2e2e2;
+}

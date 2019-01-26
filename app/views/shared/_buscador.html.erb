@@ -1,0 +1,12 @@
+<div></div>
+<%= form_tag root_path, method: :get do %>
+<p style="margin-top: 25px; width: 250px">
+<%= render 'shared/message' %>
+    <%= text_field_tag( :search, value = nil , options = {:size => "30", :placeholder => "Buscar", :class => "search-query form-control",:autocomplete => "off"  } ) %>
+      <%= button_tag(type: "submit", class: 'btn') do %>
+     <i class="glyphicon glyphicon-search"></i>
+<% end %>
+</p>
+<% end %>
+<div class="btn-group-vertical" id="search_result"></div>
+<!--Fin de Buscador-->

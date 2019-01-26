@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dianumero: MyString
+  dialetra: MyString
+  mes: MyString
+  anio: MyString
+  hora: MyString
+  descripccion: MyText
+  curso_id: 
+
+two:
+  dianumero: MyString
+  dialetra: MyString
+  mes: MyString
+  anio: MyString
+  hora: MyString
+  descripccion: MyText
+  curso_id: 

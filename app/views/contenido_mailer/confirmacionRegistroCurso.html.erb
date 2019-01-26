@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+        <style type="text/css">
+            h5 {
+               color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="width: 100%;">
+            <%= image_tag('http://ec.espol.edu.ec/banner1.png', :style => "width: 100%" )%>
+        <p style="padding-bottom: 2%;font-family: arvo; font-weight: bold;" class="mensaje">Estimado(a): <%= @usuario.nombres %> <%= @usuario.apellidos %></p>
+        </div>
+        <p class="mensaje" style="color:black">Reciba una cordial bienvenida a nuestra comunidad politécnica.</b></p><br>
+        <p class="mensaje" style="color:black">Usted se ha registrado exitosamente en el evento: <b> <%= @prospecto.nombre %></b> que inicia el <%= @evento.fecha_inicio.strftime("%d de %b del %Y") %>. Pronto un asesor de capacitación lo contactará para darle mayor información acerca de su registro.</p> <br>
+
+        <center>
+             <%= link_to image_tag('http://cec.espol.edu.ec/contacto_wsp.png'),"http://bit.ly/2Kd2HKe", target: :_blank %>
+         </center>
+
+        <br>
+        <hr>
+        <%if @prospecto.tipo != "Charla" %>
+                              
+          <div style="font-size:80%; color: black;"  >
+              <p style="font-style: italic; font-weight: bold;">Políticas de inscripción:</p>
+              <ul>
+                  <%if @prospecto.tipo == "Diplomado" %>
+                                <li>Para completar el registro del diplomado se debe realizar el pago de la matrícula del que consiste en el 20% del valor total del mismo</li>
+                  <%end%>
+
+                <li>Todo participante deberá llenar el formulario de inscripción</li>
+                <li>Adjuntar copia de cédula y cumplir con los requisitos previstos para cursar el evento</li>
+                <li>Entregar el soporte del pago al correo <%= mail_to "educon@espol.edu.ec.", @url+"" %> o entregar en las oficinas de EC</li>
+                <li>Para registrar participantes auspiciados por empresas solicitar el formulario de inscripción de Personas Jurídicas</li>
+                <li>Revisar las políticas de los eventos de capacitación en  <%= link_to "Políticas", "http://ec.espol.edu.ec/politicas.pdf", :target => "_blank" %></li>
+              </ul>
+          </div>
+
+          <div style="font-size:80%; color: black;" >
+              <p style="font-style: italic; font-weight: bold;">Importante:</p>
+              <ul>
+                <li>Estamos EXENTOS de RETENCIONES por impuesto a la Renta</li>
+              </ul>
+          </div>
+
+          <br>
+
+          <div style="background-color: gray;">
+              <p style="font-size:80%; color: white; padding: 10px 10px 10px 10px; text-align: justify;">La fecha de inicio de todos los cursos estará sujeta a un número determinado de participantes; en caso de no cubrirse ese cupo mínimo la fecha será reprogramada. Si por motivos de fuerza mayor, el curso no se abre definitivamente, Educación Continua de ESPOL procederá a la devolución del valor correspondiente.</p>
+          </div>
+
+        <%end%>
+
+        <h5>Este correo electrónico fue generado automáticamente, favor no respondas al mismo.</h5>
+    </body>
+</html>

@@ -1,0 +1,413 @@
+footer, nav {
+	/*display: none;*/
+}
+
+.container-all{
+		padding: 0px 100px 50px 100px; 
+		text-align: center;	
+		border: 1px solid gray; 
+		margin: 0% 10% 4% 10%;"
+		padding: 20%;
+	}
+
+.registro-main-container {
+	padding: 30px 100px 60px 100px;
+	text-align: center;
+}
+.registro-main-container h2 {
+	text-align: center;
+	color: #297982;
+	font-size: 40px;
+	font-weight: 600;
+}
+.registro-subcontainer {
+	padding: 20px 100px;
+}
+.registro-input-container {
+	display: flex;
+}
+.registro-izq-subcontainer,
+.registro-der-subcontainer {
+	width: 50%;
+	padding: 15px;
+}
+.registro-bloque-container {
+	padding: 15px;
+	margin-bottom: 15px;
+	border: 1px solid gray;
+	border-radius: 7px;	
+}
+.registro-bloque-container h3 {
+	color: #297982;
+}
+.registro-input-container h5 {
+	padding-top: 5px;
+	width: 160px;
+	text-align: left;
+	color: #297982;
+	font-weight: 100;
+}
+.registro-input-container h6 {
+	padding-top: 5px;
+	margin: 0px;
+	width: 30px;
+	text-align: center;
+	font-size: 40px;
+	color: #92505b;
+	font-weight: 500;
+}
+.registro-input-container input,
+.registro-input-container select {
+	margin-left: 20px;
+	border: 1px solid lightgray !important;
+}
+
+.vacio {
+	background-color: #f7ebeb;
+}
+
+/** configuracion del nuevo formulario**/
+
+.registro-main-container {
+	padding: 30px 100px 60px 100px;
+	text-align: center;
+}
+.registro-main-container h2 {
+	text-align: center;
+	color: #297982;
+	font-size: 40px;
+	font-weight: 600;
+}
+.registro-subcontainer {
+	padding: 20px 100px;
+}
+.registro-input-container {
+	display: flex;
+}
+.registro-izq-subcontainer,
+.registro-der-subcontainer {
+	width: 50%;
+	padding: 15px;
+}
+.registro-bloque-container {
+	padding: 15px;
+	margin-bottom: 15px;
+	border: 1px solid gray;
+	border-radius: 7px;	
+}
+.registro-bloque-container h3 {
+	color: #297982;
+}
+.registro-input-container h5 {
+	padding-top: 5px;
+	width: 160px;
+	text-align: left;
+	color: #297982;
+	font-weight: 100;
+}
+.registro-input-container h6 {
+	padding-top: 5px;
+	margin: 0px;
+	width: 30px;
+	text-align: center;
+	font-size: 40px;
+	color: #92505b;
+	font-weight: 500;
+}
+.registro-input-container input,
+.registro-input-container select {
+	margin-left: 20px;
+	border: 1px solid lightgray !important;
+}
+
+.vacio {
+	background-color: #f7ebeb;
+}
+
+/** configuracion del nuevo formulario**/
+
+.estilo-titulos{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 26px;
+	color: #9c9c9c;
+	font-weight: bold;
+}
+#titulo1{
+	width: 27%;
+	text-align: left;
+}
+#titulo3{
+	width: 100%;
+	text-align: center;
+}
+#titulo2{
+	width: 100%;
+	text-align: left;
+	margin-top: 2%;
+}
+.fuente{
+	text-align: left;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #919191;
+	font-size: 18px;
+}
+.title-container{
+	padding: 17px 100px 0.09px 100px;
+	text-align: center;
+	border-top: 1px solid gray;
+	margin: 0% 10% 0% 10%;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	background-color: rgb(0 140 165);
+}
+#container-datos-personales{
+	width: 100%;
+}
+.titulo-datos-personales{
+	display: flex;
+	margin-top: 3%;
+	margin-bottom: 1%;
+}
+#margen-datos-personales{
+	width: 73%;
+}
+#container-informacion-profesional-contacto{
+	display: flex;
+	border-top: 1px solid gray;
+}
+#container-domicilio-ingreso{
+	width: 100%;
+	display: flex;
+}
+#nombre-apellido{
+	width: 100%;
+	display: flex;
+}
+#container-nombre{
+	width: 100%;
+	display: flex;
+}
+#subcontainer-nombre{
+	width: 40%;
+}
+#container-apellido{
+	width: 100%;display: flex;
+}
+#label-domicilio{
+	width: 40%;
+}
+
+#container-identificacion-nacimiento{
+	width: 100%;
+	display: flex;
+}
+#campo-num-identificacion{
+		width: 60%;
+		display: flex;
+}
+#titulo-ingreso{
+	width: 34%;
+}
+#container-nacimiento-sexo{
+	width: 100%;
+	display: flex;
+}
+#container-ciudad-sexo{
+	display: flex;
+	width: 100%;
+}
+#container-fecha{
+	 width: 102%;
+	 display: flex;
+}
+#label-fecha-nac{
+	width:30%;
+	line-height: 1.1;
+}
+#cuadro-fecha{
+	width: 70%;
+	display: flex;
+}
+#container-sexo{
+	width: 100%;
+	display: flex;
+}
+#titulo-sexo{
+	width: 29.5%;
+}
+#cuadro-sexo{
+	width: 67%;
+}
+#label-nivel-academico,
+#label-telefono-fijo{
+	width: 30%;
+}
+#campo-nombre,
+#campo-apellido,
+#campo-nivel,
+#campo-titulo,
+#campo-profesion,
+#email,
+#campo-movil,
+#campo-fijo,
+#num_id,
+#fecha_nac,
+#campo-domicilio,
+#campo-ingreso,
+#campo-procedencia,
+#campo-fijo-empresa,
+#campo-ciudad{
+	border: 1px solid lightgray !important;
+}
+
+.registro-btn-regresar {
+	margin: 20px 0px 0px 20px;
+	border: 0px;
+	font-size: 18px;
+	background-color: lightgray;
+	color: black;
+}
+.registro-btn-enviar,
+.registro-btn-regresar {
+	border: 0px;
+	font-size: 25px;
+	background-color: rgb(0 140 165);
+	font-family: 'Source Sans Pro', sans-serif;
+	color: white;
+}
+/*
+.vacio {
+	background-color: #f7ebeb;
+}
+*/
+
+.registro-btn-regresar:hover,
+.registro-btn-enviar:hover {
+	transition-duration: 0.4s;
+	background: #297982bd;
+	color: #ffffff;
+}
+
+.registro-enviar{
+	margin-top: 30px;
+	margin-bottom: -4px;
+}
+
+
+@media only screen and (max-width: 1060px)  {
+	.estilo-titulos{
+		width: 100%;
+	}
+	#titulo1{
+		width: 100%;
+	}
+	#container-informacion-profesional-contacto{
+		display: inline-block;
+		border-top: none;
+		width: 100%;
+	}
+	.titulo-datos-personales{
+	display: inline-block;
+	width: 100%;
+	}
+	#margen-datos-personales{
+		width: 100%;
+	}
+	
+	#container-domicilio-ingreso{
+		display: inline-block;
+	}
+	#container-ciudad-sexo{
+		display: inline-block;
+	}
+	#label-domicilio{
+		width: 40%;
+	}
+	#nombre-apellido{
+		display: inline-block;
+		width: 101%;
+	}
+	#container-identificacion-nacimiento{
+		display: inline-block;
+	}
+	#campo-num-identificacion{
+		width: 62%;
+		display: flex;
+	}
+	#titulo-ingreso{
+		width: 34%;
+		line-height: 1.1;
+	}
+	#label-fecha-nac,
+	#titulo-sexo{
+		width: 30%;
+	}
+	#cuadro-fecha{
+		width: 70%;
+		display: flex;
+	}
+	#titulo-sexo{
+		width: 30%;
+	}
+	#cuadro-sexo{
+		width: 67%;
+	}
+	#container-nacimiento-sexo{
+		display: inline-block;
+	}
+	#container-fecha,
+	#container-sexo{
+		width: 100%;
+	}
+	#label-nivel-academico,
+	#label-telefono-fijo{
+		line-height: 1.1;
+	}
+	#borde{
+		color: #92505b;
+	}
+	#separador-contacto{
+		border-bottom: none;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 700px)  {
+
+	.title-container{
+		margin: 0% 2% -4% 2%;
+		padding: 0px;
+	}
+
+	.container-all{
+		text-align: center;	
+		border: 1px solid gray;
+		padding: 0px 6px 50px 6px;
+		margin: -4.5% 2% 4% 2%;
+	}
+	.estilo-titulos{
+		font-size: 20px;
+	}
+	.fuente{
+		font-size: 15px;
+		width: 35% !important;
+	}
+	#campo-apellido, #campo-nombre{
+		width: 75% !important;
+	}
+}
+@media only screen and (max-width: 350px)  {
+
+	.title-container{
+		margin: 0% 2% -7.5% 2%;
+		padding: 0px;
+	}
+
+	.container-all{
+		text-align: center;	
+		border: 1px solid gray;
+		padding: 0px 6px 50px 6px;
+		margin: 3.5% 2% 4% 2%;
+
+	}
+}

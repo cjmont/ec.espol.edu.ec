@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idcurso: 1
+  curso: MyText
+  contenido_id: 
+  certificado: MyText
+  objetivoespecifico: MyText
+  credito: 1
+
+two:
+  idcurso: 1
+  curso: MyText
+  contenido_id: 
+  certificado: MyText
+  objetivoespecifico: MyText
+  credito: 1

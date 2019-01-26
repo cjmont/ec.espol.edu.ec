@@ -1,0 +1,122 @@
+.mision-main-container {
+	margin: 30px 0px;
+	width: 100%;
+	padding: 60px 50px;
+	text-align: center;
+}
+.titulo-h2 {
+	font-size: 50px;
+    text-align: left;
+    font-weight: 500;
+    margin-right: 25%;
+    margin-left: 19%;
+    margin-bottom: 10px;
+    font-family: 'Arvo', serif;
+    color: #008ca5;
+}
+.raya-azul {
+	height: 3px;
+	width: 62%;
+	margin: 0px auto 50px auto;
+	background-color: #008ca5;
+}
+.mision-p {
+	margin: 0px auto;
+	width: 90%;
+	max-width: 62%;
+	font-size: 25px;
+	text-align: justify;
+	color: #403f3f;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.valores-main-container {
+	margin: 0px;
+	width: 100%;
+	padding: 60px 50px;
+	text-align: center;
+	background-color: #e5e5e5;
+}
+
+.politicas-main-container {
+	margin: 0px 0px 100px 0px;
+	width: 100%;
+	padding: 60px 50px;
+	text-align: center;
+}
+.valores-icons-container {
+	width: auto;
+	margin: 0px auto;
+}
+.valores-icons {
+	width: 140px;
+	height: auto;
+	margin: 0px 20px;
+}
+
+.imagen-politicas{
+	max-width: 65%;
+}
+.politica-img-container{
+	width: 68%;
+	display: flex;
+	margin-left: 18%;
+}
+.imagen-interna{
+	width: 100%;
+}
+.efectos{
+	transform: translateY(300px);
+    transition: transform 1s cubic-bezier(0, 0, 0.1, 1);
+    opacity:0;
+}
+
+.efectos.deslizar{
+    opacity:1;
+    transform: translateY(0px);
+}
+@media  only screen and (max-width: 1100px){
+	.titulo-h2 {
+    	text-align: left;
+    	margin-right: 0%;
+    	margin-left: 0%;
+	}
+	.raya-azul {
+    	width: 100%;
+	}
+	.mision-p {
+    	width: 100%;
+    	max-width: 100%;
+	}
+	.imagen-politicas {
+    	max-width: 100%;
+	}
+}
+@media only screen and (max-width: 1024px) and (max-height: 768px){
+	.politica-img-container{
+		width: 100%;
+		margin-left: 0%;
+	}
+	.imagen-interna{
+		width: 95%;
+	}
+	.efectos{
+		transform: none;
+    	transition: none;
+    	opacity:1;
+	}
+}
+@media only screen and (max-width: 768px) and (max-height: 1024px){
+	.efectos{
+		transform: none;
+    	transition: none;
+    	opacity:1;
+	}
+}
+@media only screen and (max-width: 1024px) and (max-height: 1024px){
+	.efectos{
+		transform: none;
+    	transition: none;
+    	opacity:1;
+	}
+}

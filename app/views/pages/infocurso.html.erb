@@ -1,0 +1,293 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="background-div">
+         <BR><%= @infoc.titulo %><BR><BR>
+</div>
+
+<%= stylesheet_link_tag    'eventos', media: 'all', 'data-turbolinks-track' => true %>
+
+<div class="container">  
+    <div id="container" >     
+        <div class="row">
+            <div class="col-md-5">
+                <br>       
+                <br>            
+                <div align =left><%= image_tag @infoc.image%>
+                <% @url = 'http://cec.espol.edu.ec:8088/infocurso?curso_id='+ @infoc.id.to_s %>
+                <%= render_shareable :buttons=> ['facebook'] , :facebook=> {:send=> 'true', :url=> @url} %>
+                <%= link_to image_tag("descargar.png", style: 'padding-top: 8px;'), infocurso_path(curso_id: @infoc.id , format: "pdf"),:target => '_blank'%>
+                <%= link_to image_tag("informacion.png", style: 'padding-top: 8px;'), contactenos_path %>
+                </div>
+                
+            </div>    
+          <div class="col-md-7">   
+            <div class="tabbysR">
+            <div class="tabbiesR">
+                <input type="radio" id="tabbiesR-1" name="tabbiesR-group-1" checked>
+                    <label for="tabbiesR-1" style="margin-top: 120px; margin-left: 620px;"> Objetivo</label> 
+                    <div class="contentyR" style="width: 610px; height: 440px;">
+                    <div id="titular">Objetivo</div>
+                    <div id="copete"> <%= @infoc.descripccion %> <br>
+                    <b> Duración del Curso: </b> <%=@infoc.duracion%> horas
+                    </div>
+                    </div>
+            </div>
+            <div class="tabbiesR">
+                <input type="radio" id="tabbiesR-2" name="tabbiesR-group-1">
+                    <label for="tabbiesR-2" style="margin-top: 5px; margin-left: 620px;">Contenido</label>
+                        <div class="contentyR" style="width: 610px; height: 760px;">
+                            <div id="titular">Contenido</div>
+                            <div id="copete"><%= simple_format @infoc.contenido, style:'font-size: 12px ' %>
+                            </div>
+                            </div>
+                        </div>
+            </div>
+            <div class="tabbiesR">
+                <input type="radio" id="tabbiesR-3" name="tabbiesR-group-1">
+                    <label for="tabbiesR-3" style="margin-top: 5px; margin-left: 620px;">Dirigido a</label>
+                        <div class="contentyR" style="width: 610px; height: 300px;">
+                        <div id="titular">Dirigido a</div>
+                        <div id="copete"><%= simple_format @infoc.dirigido, style:'font-size: 14px; text-align: justify;' %></div>
+                      </div>
+            </div>
+            <div class="tabbiesR">
+                        <input type="radio" id="tabbiesR-4" name="tabbiesR-group-1">
+                            <label for="tabbiesR-4" style="margin-top: 5px; margin-left: 620px;">Requisitos</label>
+                            <div class="contentyR" style="width: 610px; height: 300px;">
+                                <div id="titular">Requisitos</div>
+                                <div id="copete"><%= simple_format @infoc.requisitos, style:'font-size: 12px; text-align: justify;' %> </div>
+                            </div>
+          </div>
+          <div class="tabbiesR">
+                        <input type="radio" id="tabbiesR-5" name="tabbiesR-group-1">
+                          <%if @infoc.programa.nil? %>
+                              <br>
+                              <br>
+                              <br>
+                          <%else%>
+                            <label for="tabbiesR-5" style="margin-top: 5px; margin-left: 620px;">Programa</label>
+                            <div class="contentyR" style="width: 610px; height: 300px;">
+                                <div id="titular"><%=@infoc.programa.titulo %></div>
+                                <div id="copete">
+                                <p style="text-align: justify; font-size: 14px;">
+                                <%=link_to 'Ver más' , infoprograma_path(programa_id: @infoc.programa.id)%>
+                                </p>
+                                </div>
+                            </div>
+                          <%end%>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>    
+      </div>    
+    </div> 
+
+<br>
+  <div class="col-md-1"></div>
+  <div class="container ">
+<div class="tab-content">
+                <div id="todos" class="tab-todos tab-pane fade active in  ">
+                    <p>
+                        <div class="table-responsive col-md-11 ">
+                            <br>
+                            <div style="font-size: 20px;">            
+                                <table class="table table-condensed table-bordered">
+                                    <thead >
+                                        <th colspan="5" class="agenda-th1"> 
+                                          <%= image_tag('calendario_servicio.png') %>Agenda
+                                        </th>
+                                        <tr>
+                                            <th class="table-th">Inicio</th>
+                                            <th class="table-th">Fin</th>
+                                            <th class="table-th">Horario</th>              
+                                            <th class="table-th">Sede</th>
+                                            <th class="table-th"></th>
+                                        </tr>
+                                    </thead>
+               
+                                    <tbody>
+                                             <!-- Single event in a single day -->
+
+                        <% @n_eventos = 0 %>
+                                
+                        <% @calendarios.where("fecha_inicio >= ?", @fecha_actual).order("fecha_inicio").each do |calendario| %> 
+                                <%if calendario.curso.nil? %>
+                                <% else%>  
+                                  <%if calendario.curso.id == @infoc.id %>
+                                     <% @n_eventos = @n_eventos + 1 %>
+                                    <tr>
+                                        <td class="agenda-date" class="active" rowspan="1" style="text-align: center" >               
+                                                <div class="dayofmonth " style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                                <b><%= calendario.fecha_inicio.strftime("%d") %></b> 
+                                                
+
+                                                <% if calendario.fecha_inicio.strftime("%A")=="Sunday" %> Domingo
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Monday" %> Lunes
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Tuesday" %> Martes
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Wednesday" %> Mi&eacute;rcoles
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Thursday" %> Jueves
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Friday" %> Viernes
+                                                    <% elsif calendario.fecha_inicio.strftime("%A")=="Saturday" %> S&aacute;bado
+                                                <% else %> 
+                                                <% end %>
+
+                                                <div class="dayofweek">
+                                                    <% if calendario.fecha_inicio.strftime("%B")=="January" %> Enero
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="February" %> Febrero
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="March" %> Marzo
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="April" %> Abril
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="May" %> Mayo
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="June" %> Junio
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="July" %> Julio
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="August" %> Agosto
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="September" %> Septiembre
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="October" %> Octubre
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="November" %> Noviembre
+                                                        <% elsif calendario.fecha_inicio.strftime("%B")=="December" %> Diciembre
+                                                    <% else %> 
+                                                    <% end %>
+                                                </div>
+                                                <!-- end dayofweek-->
+                                                <div class="shortdate text-muted"> 
+                                                    <%= calendario.fecha_inicio.year %>
+                                                </div>
+                                            </td> 
+
+                                              <!----------------Fecha fin---------------------->
+
+                                                
+                                                
+                                                  <td class="agendadateventos active" rowspan="1" style="text-align: center">
+                                                  <%if calendario.fecha_fin.nil?%>
+                                                  <%else%>                  
+                                                    <div class="dayofmontheventos" style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+                                                    <b><%= calendario.fecha_fin.strftime("%d") %></b>
+
+                                                      <% if calendario.fecha_fin.strftime("%A")=="Sunday" %> Domingo
+                                                        <% elsif calendario.fecha_fin.strftime("%A")=="Monday" %> Lunes
+                                                        <% elsif calendario.fecha_fin.strftime("%A")=="Tuesday" %> Martes
+                                                        <% elsif calendario.fecha_fin.strftime("%A")=="Wednesday" %> Mi&eacutercoles
+                                                        <% elsif calendario.fecha_fin.strftime("%A")=="Thursday" %> Jueves
+                                                        <% elsif calendario.fecha_fin.strftime("%A")=="Friday" %> Viernes
+                                                        <% elsif calendario.fecha_fin.strftime("%A")=="Saturday" %> S&aacutebado
+                                                      <% else %> 
+                                                      <% end %>
+                                                        
+                                                    
+                                                    <div class="dayofweekeventos">
+                                                       <% if calendario.fecha_fin.strftime("%B")=="January" %> Enero
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="February" %> Febrero
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="March" %> Marzo
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="April" %> Abril
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="May" %> Mayo
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="June" %> Junio
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="July" %> Julio
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="August" %> Agosto
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="September" %> Septiembre
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="October" %> Octubre
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="November" %> Noviembre
+                                                             <% elsif calendario.fecha_fin.strftime("%B")=="December" %> Diciembre
+                                                             <% else %> 
+                                                        <% end %>
+                                                    </div>
+                                                    <div class="diaventos text-muted"> 
+                                                            <%= calendario.fecha_fin.year %>
+                                                            </div>
+                                                    <%end%>
+                                                      </td> 
+
+
+
+                                                      <!--end-->
+                                                        <% @registrado = false %>
+
+                                                        <% @lista.item_calendarios.each do |item| %>
+                                                            
+                                                            <%if item.calendario.curso.nil? %>
+                                                                
+                                                            <%else%>
+                                                                <%if item.calendario.curso.id == calendario.curso.id %>  
+                                                                    <% @registrado = true %>  
+
+                                                                <%end%>
+                                                            <%end%>     
+                                                        <%end%>
+
+                                                        <td class="agenda-events" style="text-align: center">
+                                                        <div style="margin-top: 30px; margin-left: 10px; margin-right: 10px;">
+                                                        <%= calendario.horario %></div> 
+                                                        </td>
+                                                        <td class="agenda-events" style="text-align: center">
+                                                        <div style="margin-top: 30px; margin-left: 10px; margin-right: 10px;">
+                                                         
+                                                        <%if calendario.sede=='Campus "Las Peñas"'%>
+                                                          <%= link_to 'Campus "Las Peñas"',href="https://www.google.com/maps/dir//-2.1835572,-79.8772426/@-2.1835556,-79.9472832,12z/data=!3m1!4b1",:target => '_blank'%>
+                                                          <%else%>
+                                                            <%= link_to 'Campus "Las Peñas"',href="https://www.google.com/maps/dir//-2.1495392,-79.94958910000003",:target => '_blank'%>
+                                                        <%end%>
+                                                          </div>                          
+                                                        </td>
+                                                          <td colspan="1" style="text-align: center; vertical-align: middle;" >
+                                                            <%if @registrado == false %>  
+
+                                                                 <%= button_to item_calendarios_path(calendario_id: calendario), class: 'btn-mas_informacion btn-default' do %>
+                                                                 <i class="fa fa-shopping-cart"></i>
+                                                                 <%end%>
+                                                                
+                                                            <% end %>
+                                                    </td>
+                                        </tr>   
+                                                    <% else%>
+                                                     <%end%>
+                                                     <%end%>   
+                                                 <% end %>
+
+                          <%if @n_eventos == 0 %>
+                              <th colspan="5"> 
+                               <br>
+                                  <div style="text-align: center;">No hay eventos agendados</div><br>
+                              </th> 
+                          <% else%>
+                          <%end%>  
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                        </div><!--end table-responsive-->
+                    </p>
+                </div><!-- end todos-->
+
+
+             <div class="col-md-12"></div>
+
+<!--        --------------------------- -->
+          
+    </div>
+    <center>
+    <div>
+                <br>
+                <%= link_to "Regresar", curso_path, class: 'btn-regresar btn-default' %>
+        </div>
+        </center>
+  </div>
+   </div>
+  </div>
+</body>
+<br><br>

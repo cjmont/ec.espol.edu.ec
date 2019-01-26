@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  calendario_id: 
+  lista: 
+  cantidad: 1
+
+two:
+  calendario_id: 
+  lista: 
+  cantidad: 1

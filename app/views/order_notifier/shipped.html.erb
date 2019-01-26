@@ -1,0 +1,15 @@
+<h1>Tu orden ha sido enviada</h1>
+<h3>Dear <%= @pedido.name %></h3>
+<p>
+	Recientemente hemos enviado tu registro 
+</p>
+<p>Detalle de tu registro: </p>
+	<% @pedido.item_calendarios.each do |item| %>
+	<ul>
+		<li>
+			<%= item.calendario.curso.title %>&times;=item.cantidad %>
+		</li>
+	</ul>		
+<% end %>
+
+<p>Gracias</p>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Educacion Continua ¡Formación a lo largo de la vida!</title>
+    <!--link href="/assets/favicon.ico" rel="shortcut icon" type="image/x-icon" /-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'http://fonts.googleapis.com/css?family=Raleway:400,700,600,500,300' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true  %>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="icon" type="image/png" href="http://ec.espol.edu.ec/logo-ec-educacion-continua.png" />
+    <%= csrf_meta_tags %>
+  
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+     
+    fbq('init', '229515124267068'); 
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+    <img height="1" width="1" 
+    src="https://www.facebook.com/tr?id=229515124267068&ev=PageView
+    &noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
+
+    <% @urlAbs = "asd" 
+    urlAbs = request.original_url
+    @lengthAbs = "asdfgh"
+    @partsplit = "" %>
+    <% if urlAbs[7]=="c"
+        @partsplit = urlAbs.gsub("http://cec.espol.edu.ec/detalle/","")
+    else if urlAbs[7]=="e"
+        @partsplit = urlAbs.gsub("http://ec.espol.edu.ec/detalle/","") 
+        end
+    
+    end 
+    @partsplit = @partsplit.gsub("%C3%AD","í")
+    @partsplit = @partsplit.gsub("%C3%B3","ó")
+    @partsplit = @partsplit.gsub("%C3%A9","é")
+    @partsplit = @partsplit.gsub("%C3%A1","á")
+    @partsplit = @partsplit.gsub("%C3%BA","ú")
+    @partsplit = @partsplit.gsub("%C3%B1","ñ")
+    %>
+    
+    <meta property="og:url"           content=" <%= request.original_url %>" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="<%= @partsplit %>" />
+    <script type="text/javascript">
+        if (screen.width < 800) {
+            direc = window.location
+            if (direc.indexOf("detalle")>=0){
+                
+            }else{
+                window.location = "http://ec.espol.edu.ec/final.jpg";
+            }
+        }
+    </script> 
+  </head>
+
+  <body style="padding-top: 0px;">
+
+
+  <%= render 'shared/header' %>
+  
+  <%= render 'shared/message' %>
+  
+
+		<div class="main-container" > 
+
+         <%= yield %>
+         
+    <%= render 'shared/footer' %>
+			
+		</div><!-- /.main-container -->
+
+    
+    <%= javascript_include_tag "area_index" %>
+  </body>
+</html>

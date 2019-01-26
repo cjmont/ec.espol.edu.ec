@@ -1,0 +1,74 @@
+<!-- PROGRAMAS -->
+<div  style="background: #001a43;">
+<br>
+    <h1 style="color: #fff; font-family: 'Arial'; font-weight: 500; text-shadow: 0px;">Programas</h1><br><br><br><br>
+</div>  
+			<section class="products-grid" style="background: #001a43; padding-top: 5px;">
+				<div class="container">
+					<div class="row products-container">
+					<% @count = 0 %>
+					<% @programas.order("RAND()").each do |programa| %>
+						<%if @count < 3 %>
+							<% @count = @count + 1 %>  
+							<div class="col-md-4 col-sm-6 col-xs-12 product">
+								<div class="thumbnail" style="background-image: url('/assets/products/<%= programa.imagen_file_name %>');">
+								<%= image_tag programa.imagen %>
+								<div class="product-details text-center" style="width: 360px; height: 189px; ">
+										<div class="align-vertical">
+											<h3 style="padding-top: 5px; padding-top: 5px; padding-left: 5px; padding-right: 5px; font-size: 22px; font-family: 'Arial'; margin-bottom: 5px;"><%= programa.titulo %></h3>
+											<%= link_to  infoprograma_path(programa_id: programa), class: "btn btn-primary"  do %>
+			  								<i class="fa fa-shopping-cart"></i> Más información
+			  								<% end %>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						<% else %>
+						<% break %>
+						 <% end %>
+					 <% end %>
+					</div><!-- /.row -->
+				</div><!-- /.container -->
+				<%= link_to 'Ver Todo', programa_path, class: "vertodo btn-vertodo2"%>
+				<br><br>
+			</section>
+<!-- CURSOS -->
+<div  style="background: #d9dce0;">
+<br>
+    <p class="letrasindex">Cursos</p><br>
+</div>  
+<br><br><br><br>
+<section class="products-grid" style="background: #d9dce0; padding-top: 5px;">
+				<div class="container">
+					<div class="row products-container" >
+					<% @count = 0 %>
+					<% @cursos.order("RAND()").each do |curso| %>
+					<%if @count < 3 %>
+							<% @count = @count + 1 %>  
+						<div class="col-md-4 col-sm-6 col-xs-12 product">
+							<div class="thumbnail" style="background-image: url('/assets/products/<%= curso.image_file_name %>');">
+							<%= image_tag curso.image %>
+								<div class="product-details text-center" style="width: 360px; height: 189px; ">
+									<div class="align-vertical">
+										<h3 style="padding-top: 5px; padding-top: 5px; padding-left: 5px; padding-right: 5px; font-size: 22px; font-family: 'Arial'; margin-bottom: 5px;"><%= curso.titulo %></h3>
+										<%= link_to  infocurso_path(curso_id: curso), class: "btn btn-primary"  do %>
+		  								<i class="fa fa-shopping-cart"></i> Más información
+		  								<% end %>
+									</div>
+								</div>
+							</div>
+						</div>
+					<% else %>
+						<% break %>
+						 <% end %>
+					 <% end %>
+					</div><!-- /.row -->
+				</div><!-- /.container -->
+				<%= link_to 'Ver Todo', curso_path, class: "vertodo btn-vertodo1"%>
+				<br><br>
+			</section>
+
+			
+			
+			

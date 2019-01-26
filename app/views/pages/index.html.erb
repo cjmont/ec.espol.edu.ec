@@ -1,0 +1,385 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+
+<div class="bxslider"></div>
+<br><br><br>
+<div class="hidden-md hidden-lg hidden-xs" style="display: none;" >
+    <br>
+</div>
+<div class="hidden-xs " style="text-align: center; margin-top: 67px !important;">
+<br>
+        <!--Slider index-->
+
+<div>
+<div class="slider">
+    <div class="slide_viewer">
+        <div class="slide_group">
+            <div class="slide">
+                <a target="" href="http://www.ec.espol.edu.ec/detalle/Nuevas-tendencias-en-Selecci%C3%B3n-de-Personal?"><%= image_tag('Index/Banner/b1.jpg', style: "width:100vw;") %> </a>
+            </div>
+            <div class="slide other-slide">
+                <a target="" ><%= image_tag('Index/Banner/b2.jpg', style: "width:100vw;") %> </a>
+            </div>
+            <div class="slide other-slide">
+                <a target="" target="" href="http://www.ec.espol.edu.ec/detalle/Internacional-en-Alcantarillado-y-Aguas-Pluviales?"><%= image_tag('Index/Banner/b5.jpg', style: "width:100vw;") %> </a>
+            </div>
+             <div class="slide other-slide">
+                <a target="" href="http://www.ec.espol.edu.ec/detalle/Internacional-en-Retail-Management?" ><%= image_tag('Index/Banner/b4.jpg', style: "width:100vw;") %> </a>
+            </div>
+            <!--div class="slide other-slide">
+                <a target="" href="http://www.ec.espol.edu.ec/detalle/Internacional-en-Alcantarillado-y-Aguas-Pluviales?" ><%= image_tag('Index/Banner/b5.jpg', style: "width:100vw;") %> </a>
+            </div-->
+        </div>
+    </div> 
+    <div class="slide_buttons">
+    </div>
+
+<div>
+</div>
+</div>
+<!--
+======================= CUADRO QUE ES ==================================
+-->
+<div id="cuadro_que_es">
+    <div id="educacion-mensaje-box">
+        <div id="contenedor_que_es">
+            <h2 class="cuadro_mensaje_que_es"> ¿Qué es educación continua?</h2>
+        </div>
+        
+        <p id="educacion-mensaje">Es una forma de actualización con las últimas tendencias de su sector o los avances en un tema específico, en el desarrollo organizacional de empresas privadas e instituciones públicas, así como para todos quienes quieran capacitarse y superarse </p>
+    </div>
+</div>
+
+<!--
+======================= CORPORATIVO ==================================
+-->
+<div class="parallax corporativo-fondo">
+    <div class="corporativo-index">
+        <div id="corporativo-titulo-caja">
+                <h1 id="titulo1">CORPORATIVO</h1>
+                <h2 id="corporativo-mensaje1">DESARROLLADO ESPECIALMENTE PARA SU EMPRESA</h2>
+        </div>
+        <div id="corporativo-link">
+         <form action="/corporativo" method="GET">
+            <button class="corporativo-button">
+             Ver más
+            </button>
+        </form>
+        </div>
+    </div>
+</div>
+<!--
+======================= CONTENEDOR OFERTA Y EVENTOS==================================
+-->
+<div class="contenedor-oferta-eventos" >
+<!--
+======================= OFERTA ACADEMICA ==================================
+-->
+<div class="ofertaAcademica-main-container" data-depth=".60">
+    <div id="ofertaAcademica-titulo-container">
+        <h1 id="oferta-titulo">OFERTA ACADÉMICA</h1>
+    </div>
+    <div class="ofertaAcademica-recuadro">
+            <div class="ofertaAcademica-ofertas">
+                <div class="contenedor-imagens">
+                    <%= link_to image_tag("Index/OfertaAcademica/1", class: 'ofertaAcademica-img'),"/",class: "enlaces" %>
+                </div>
+                    <h2 class="ofertaAcademica-text">CONFERENCIAS</h2>
+            </div>
+            <div class="ofertaAcademica-ofertas">
+                <div class="contenedor-imagens">
+                    <%= link_to image_tag("Index/OfertaAcademica/3", class: 'ofertaAcademica-img'),"/prospectosEsp/Programas",class: "enlaces" %>
+                </div>
+                    <h2 class="ofertaAcademica-text">PROGRAMAS</h2>
+            </div>
+            <div class="ofertaAcademica-ofertas">
+                <div class="contenedor-imagens">
+                <%= link_to image_tag("Index/OfertaAcademica/2", class: 'ofertaAcademica-img'),"/prospectosEsp/Cursos",class: "enlaces" %>
+                </div>
+                <h2 class="ofertaAcademica-text">CURSOS</h2>
+            </div>
+    </div>
+</div>
+<!--
+======================= PROXIMOS EVENTOS ==================================
+-->
+
+    <div id="proximosEventos">
+        <div class="contenedor-titulo-eventos">
+            <h1 id="titulo-proximos-eventos"> PRÓXIMOS EVENTOS</h1>
+        </div>
+        <% if @proximos_eventos.length != 0 then %>
+          <ul class="listas-eventos-proximos" >
+              <% @proximos_eventos.each do |prospecto|%>
+                  <li class="contenido_lista_proximo" >
+                      <p class="texto-contenido"> 
+                        <% var = prospecto.nombre.gsub(" ","-") %>
+                        <%= link_to prospecto.nombre,"/detalle/#{var}"%> </p>
+                  </li>
+              <% end %>
+          </ul>
+        <% end %>
+    </div>
+
+</div>
+<!--
+======================= SECTORES DE INTERES ==================================
+-->
+
+</div>
+
+<div class="sectores-main-container">
+    <div class="sectores-titulo-container">
+        <h1>SECTORES DE INTERÉS</h1>
+    </div>
+    <div class="sectores-contaier">
+        <div class="sectores-ofertas-container">
+            <button class="sector-btn" onclick="getProspectos('empresariales')">
+                <div class="sectores-img-container">
+                  <%= image_tag("Index/OfertaAcademica/empresarial", class: 'sectores-img') %>
+              </div>
+            </button>
+            <button class="sector-btn" onclick="getProspectos('tic')">
+                <div class="sectores-img-container">
+                  <%= image_tag("Index/OfertaAcademica/tecnologia", class: 'sectores-img') %>
+              </div>
+            </button>
+            <button class="sector-btn" onclick="getProspectos('educativo')">
+                <div class="sectores-img-container">
+                  <%= image_tag("Index/OfertaAcademica/educativo", class: 'sectores-img') %>
+              </div>
+            </button>
+             <button class="sector-btn" onclick="getProspectos('ciencias')">
+                <div class="sectores-img-container">
+                  <%= image_tag("Index/OfertaAcademica/ciencias", class: 'sectores-img') %>
+              </div>
+            </button>
+            <button class="sector-btn" onclick="getProspectos('sociales')">
+                <div class="sectores-img-container">
+                  <%= image_tag("Index/OfertaAcademica/sociales", class: 'sectores-img') %>
+              </div>
+            </button>
+             <button class="sector-btn" onclick="getProspectos('ingenieria y procesos')">
+                <div class="sectores-img-container">
+                  <%= image_tag("Index/OfertaAcademica/ingenieria-y-procesos", class: 'sectores-img') %>
+              </div>
+            </button>
+        </div>
+        <div id="recuadro-img-prospectos">
+        <div class="prospectos-container">
+        </div>
+      </div>
+    </div>
+</div>
+
+<!--Estudiantes-->
+<!-- <div  style="background: #001a43; height: 540px;">
+<br>
+    <h1 class="letrasindexazul">LO QUE DICEN NUESTROS PARTICIPANTES</h1>
+    <div class="carousel-reviews broun-block">
+    <div class="container">
+        <div class="row">
+            <div id="carousel-reviews" class="carousel slide" data-ride="carousel" >
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="block-text rel zmin">
+                                <p>“Educación Continua tiene lo que buscábamos, que es una metodología de trabajo, dónde el 90% son ejercicios prácticos y apenas el 10% teoría; y al final tomaron pruebas que validaban lo aprendido. <br>
+                                    El servicio fue puntual, ordenado. Lo recomendaría a cualquier empresa que desee tomar sus capacitaciones.”
+
+                                </p><ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                            </div>
+                            <div class="person-text rel">
+                              <%= image_tag('Index/Participantes/1.png') %> <br>
+                                <a title="">Danny Tigua</a>
+                                <i>Director Financiero</i><br>
+                                <i>Empresa Medios Públicos del Ecuador</i> 
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 hidden-xs">
+                            <div class="block-text rel zmin">
+                                <p>“El servicio de Educación Continua Espol ha sido fantástico. El proceso fue prolijo, coordinado y muy atento ante todas nuestras necesidades. Nuestros colaboradores están muy contentos con los conocimientos que se les ha transmitido y la forma en las que se ha llevado a cabo el programa,  por lo que lo consideramos todo un éxito.”</p>
+                                <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                            </div>
+                            <div class="person-text rel">
+                              <%= image_tag('Index/Participantes/2.png') %>
+                              <a title="">José Antonio Lince</a>
+                              <i>Gerente General</i><br>
+                              <i>Produmar</i> 
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                            <div class="block-text rel zmin">
+                                <a title="" href="#">Planes: Fire & Rescue</a>
+                                <p>“Trabajar con Educación Continua Espol fue una experiencia agradable. Tienen asesores  y capacitadores excelentes  que  estuvieron pendientes de todos los detalles del curso y su sistema de feedback ante algún requerimiento es 100% confiable.”</p><br><br>
+                                <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                            </div>
+                            <div class="person-text rel">
+                                <%= image_tag('Index/Participantes/3.png') %>
+                                <a title="">Jessenia Terán</a>
+                                <i>Gerente de Recursos Humanos</i><br>
+                              <i>TAGSA</i> 
+                            </div>
+                      </div>
+                    </div>               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>  -->
+
+<!-- NOTICIAS -->
+<!-- FORMATO DE IMAGENES: 275x183     -->
+<!--  <div class="row noticias-mainRow-container">
+    <div style="background: #d9dce0;padding-bottom:-moz- 2%;">
+        <p class="letrasindex" style="padding-top: 65px;text-decoration: none;">NOTICIAS</p>
+    </div>
+
+     <div class="row noticias-row-container">
+      <div class="titulo_noti">
+          <div class="news"><b>NEWSLETTER</b></div>
+          <div class="contenido">
+              <% if not @newsletter.blank? %>
+                <div class="noticia-img-container">
+                  <%= image_tag(@newsletter.imagen, class: "noticias-img", alt: "Imagen de Newsletter") %>
+                </div>
+                
+                <div class="new_titulo">
+                    <b><%= @newsletter.titulo %></b>
+                </div>
+                
+                <div class="new_fecha">
+                    <%= l @newsletter_publicacion , format: :largo %>
+                </div>
+               
+               <div class="new_autor">
+                    <b><%= @newsletter.escritor %></b>
+                </div>
+                
+                <div class="new_detalle">
+                    <p><%= truncate(@newsletter.contenido, separator: /\s/, :ommision => "... Read More", :length => 262)%></p>
+                </div>
+                
+                <div class="noticias-link-container">
+                    <a class="noticias-link"><%= link_to 'Ver Más', "/noticias/articulo/#{@newsletter.id}" %></a>
+                </div>
+              <% end %>
+          </div>
+      </div>
+
+      <div class="titulo_noti">
+          <div class="news"><b>INFO EC</b></div>
+          <div class="contenido">
+              <% if not @info.blank? %>
+                <div class="noticia-img-container">
+                  <%= image_tag(@info.imagen, class: "noticias-img", alt: "Imagen de Info EC") %>
+                </div>
+                
+                <div class="new_titulo">
+                    <b><%= @info.titulo %></b>
+                </div>
+                
+                <div class="new_fecha">
+                    <%= l @info_publicacion , format: :largo %>
+                </div>
+                
+                <div class="new_autor">
+                    <b><%= @info.escritor %></b>
+                </div>
+                
+                <div class="new_detalle">
+                    <p><%= truncate(@info.contenido, separator: /\s/, :ommision => "... Read More", :length => 262)%></p>
+                </div>
+                
+                <div class="noticias-link-container">
+                  <a class="noticias-link"><%= link_to 'Ver Más', "/noticias/articulo/#{@info.id}" %></a>
+                </div>
+              <% end %>
+          </div>
+      </div>
+
+      <div class="titulo_noti" style="background-color: #d9dce0">
+        <a class="twitter-timeline" data-width="100%" data-height="574" data-theme="light" data-link-color="#641177" href="https://twitter.com/econtinuaespol?ref_src=twsrc%5Etfw"></a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
+</div>   -->
+
+<!-- BLOQUE DE PUBLICIDAD -->
+<div id="mas-de-container">
+    <div id="mas-de"><h2>MÁS DE...</h2></div>
+    <div id="conten1" class="contenedor-numero-letra">
+      <div id="num1" class="timer" data-to="1350" data-speed="3500"></div>
+      <div class="mas-text">CURSOS CORPORATIVOS DICTADOS</div>
+    </div>
+    <div id="conten2" class="contenedor-numero-letra">
+      <div id="num2"  class="timer" data-to="920" data-speed="3500"></div>
+      <div class="mas-text">EMPRESAS CAPACITADAS</div>
+    </div>
+    <div id="conten3" class="contenedor-numero-letra">
+      <div id="num3" class="timer" data-to="64700" data-speed="3500"></div>
+      <div class="mas-text">PROFESIONALES FORMADOS</div>
+    </div>
+</div>
+
+<div style="background: #ffffff;padding-top: 20px;padding-bottom: 50px;height: 220px; margin-top:5px; margin-bottom: 0px; margin-left: 15%; margin-right: 15%;">
+    <!--p id="titulo-container">logos</p-->
+    <div id="-logos-imagenes">
+        <%=image_tag("Index/logos/recla.png",class: "logo-pie", :align=> "left")%>
+        <%=image_tag("Index/logos/secretaria.png",class: "logo-pie", :align=> "middle", id: "secretaria-img")%>
+        <%=image_tag("Index/logos/iso.png",class: "logo-pie", :align=> "right")%>
+    </div>
+</div>        
+<script type="text/javascript">
+    jQuery(document).ready(function ($){
+        $('#myCarousel').carousel({
+            interval: 3000
+      })
+        $(window).scroll(function(){
+          var ban = false;
+          if ($(window).scrollTop() > 100 &&  ban == false) {
+            $("#educacion-mensaje-box").addClass("deslizar");
+            ban = true;
+          }
+
+          var bandera = false;
+          if ($(window).scrollTop() > 2000 &&  bandera == false) {
+            $('.timer').each(count);
+
+            function count(options) {
+              var $this = $(this);
+              options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+              $this.countTo(options);
+            }
+            bandera = true;
+            $('#num1').removeClass('timer');
+            $('#num2').removeClass('timer');
+            $('#num3').removeClass('timer');
+          }
+        });
+      });
+  
+</script>
+
+      <%= javascript_include_tag "area_index" %>
+      <%= javascript_include_tag "popupindex" %>
+      <%= javascript_include_tag "slideindex" %>
+      <%= javascript_include_tag "jquery.countTo" %>
+
+      <%= stylesheet_link_tag 'index'%> 
+      <%= stylesheet_link_tag 'ofertaAcademica'%> 
+      <%= stylesheet_link_tag 'popupindex'%> 
+      <%= stylesheet_link_tag 'slider'%>
+      <%= stylesheet_link_tag 'index-noticias'%>
+      <%= stylesheet_link_tag 'honest', media: 'all', 'data-turbolinks-track' => true %>
+      <%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => true %>

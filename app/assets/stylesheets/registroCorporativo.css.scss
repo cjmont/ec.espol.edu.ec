@@ -1,0 +1,389 @@
+h5, h3, h6 {
+	color: #6b6a6a;
+}
+input, select, textarea {
+	background-color: white !important;
+}
+.registroMain-container {
+	background-image:  image-url('Corporativa/edificio-registro.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	padding: 50px 224px 50px 224px;
+	margin: 50px 0px;
+}
+.checkbox-container {
+	display: flex;
+	margin: 0px auto;
+}
+.checkbox {
+	display: block !important;
+	margin: 7px 20px 0px 0px !important;
+	background-color: gray;
+	width: 20px;
+	height: 20px;
+}
+.titulo-container {
+	width: 100%;
+	border-bottom: 3px solid #007A84;
+}
+.titulo-container h2 {
+	margin-bottom: 0px;
+	font-size: 40px;
+	text-align: left;
+	font-family: 'Arvo', serif;
+	color: #007A84;
+}
+.registro-container {
+	padding: 40px 30px;
+	background-color: #e0e0e091;
+	margin-top: 50px;
+}
+.input-container {
+	display: flex;
+	margin-bottom: 20px;
+}
+.subInput-container-izq {
+	display: flex;
+	margin-right: 1%;
+	width: 50%;
+}
+.subInput-container-der {
+	display: flex;
+	margin-left: 1%;
+    width: 47.5%;
+}
+.input-container h5 {
+	width: 136px;
+	padding-top: 10px;
+	text-align: left;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.subInput-h5 {
+	width: 159px !important;
+	padding-top: 10px !important;
+	text-align: left !important; 
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.pregunta-input-container {
+	margin-bottom: 20px;
+	text-align: left;
+}
+.horariosMain-container {
+	width: 40%;
+	min-width: 300px;
+	padding: 0px 30px;
+}
+.horariosMain-container h5 {
+	width: 100%;;
+	padding-top: 10px;
+	text-align: center;
+}
+.horarios-container {
+	padding: 10px;
+	background-color: lightgray;
+}
+.horario-checkbox-container {
+	margin: 0px auto;
+}
+.horario-checkbox-container h6 {
+	margin-bottom: 5px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.horario-checkbox-container input {
+	margin: 0px auto !important;
+}
+.enviar-btn {
+	background-color: lightgray;
+	margin: 50px auto 0px auto;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.obligatorio {
+    padding-top: 5px;
+    margin: 0px;
+    width: 30px;
+    text-align: center;
+    font-size: 40px;
+    color: #92505b;
+    font-weight: 500;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.vacio {
+    background-color: #f9c8c8 !important;
+}
+#campo-direccion {
+	display: none;
+}
+
+#lugar{
+	width: 49%;
+}
+
+#cuadro-donde{
+	width: 50%;
+}
+
+
+@media only screen and (max-width: 1600px) and (min-width: 1551px) {
+
+
+	.horariosMain-container {
+    	width: 38%;
+    }
+}
+
+@media only screen and (max-width: 1550px) and (min-width: 1481px) {
+
+    #horaInicio,#horaFin{
+    	padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 1480px) and (min-width: 1367px){
+
+    #horaInicio,#horaFin{
+    	padding: 3px;
+    }
+
+    #cuadro-participante{
+		width: 17%;
+	}
+
+	.registroMain-container {
+    	padding: 50px 170px 50px 170px;
+	}
+}
+
+
+@media only screen and (max-width: 1366px) and (min-width: 1281px) {
+
+    .registroMain-container {
+    	padding: 50px 165px 50px 165px;
+	}
+
+	#horaInicio,#horaFin{
+    	padding: 3px;
+    }
+
+    .horariosMain-container {
+    	padding: 0px 16px;
+	}
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 1211px) {
+
+    .registroMain-container {
+    	padding: 50px 100px 50px 100px;
+	}
+
+	#horaInicio,#horaFin{
+    	padding: 3px;
+    }
+}
+
+@media only screen and (max-width: 1212px) and (min-width: 1023px) {
+	.registroMain-container {
+    	padding: 50px 100px 50px 100px;
+	}
+
+	.contenedor-evento{
+		display: flow-root;
+	}
+
+	#tipo{
+		float: left;
+		width: 30% !important;
+	}
+
+	#fecha-esperada{
+		float: left;
+		width: 40% !important;
+    	padding: 0px 30px;
+	}
+
+	#cuadro-participante{
+		float: left;
+		width: 22%;
+	}
+
+	#cuadro-horario{
+		float: left;
+		margin-left: 24%;
+    	margin-right: 21%;
+	}
+
+	.horariosMain-container {
+    	width: 53%;
+	}
+
+	#cuadro-donde{
+		width: 83%;
+	}
+
+	#cuadro-lugar-direccion{
+		display: flow-root;
+	}
+
+	#cuadro-donde {
+   	 	width: 100%;
+	}
+
+	#campo-direccion div,#campo-direccion{
+		width: 100% !important;
+	}
+
+	#direccion{
+		width: 35%;
+		font-family: 'Source Sans Pro', sans-serif;
+	}
+	#campo-direccion div input{
+		width: 61%;
+	}
+    
+}
+
+@media only screen and (max-width: 1024px) {
+
+	.registroMain-container {
+    	padding: 50px 80px 50px 80px;
+	}
+
+	.contenedor-evento , #cuadro-lugar-direccion,.contenedor-personalizado{
+		display: flow-root;
+	}
+
+	#tipo{
+		float: left;
+		width: 30% !important;
+	}
+
+	#fecha-esperada{
+		float: left;
+		width: 40% !important;
+    	padding: 0px 30px;
+	}
+
+	#cuadro-participante{
+		float: left;
+		width: 27%;
+	}
+
+	#cuadro-horario{
+		float: left;
+		margin-left: 24%;
+    	margin-right: 21%;
+	}
+
+	.horariosMain-container {
+    	width: 53%;
+	}
+
+	#cuadro-donde {
+   	 	width: 100%;
+	}
+
+	#campo-direccion div,#campo-direccion{
+		width: 100% !important;
+	}
+
+	#direccion{
+		width: 35%;
+	}
+
+	.subInput-h5 {
+    	width: 173px !important;
+	}
+
+	#campo-direccion div input{
+		width: 61%;
+	}
+
+	.campo-nombre-apellido .subInput-h5 {
+    	width: 135px !important;
+	}
+
+	.campo-nombre-apellido{
+		width:100%;
+		margin: 0%;
+		margin-bottom: 20px;
+	}
+
+	.contenedor-personalizado{
+		margin-bottom: 0%;
+	}
+
+	#celular{
+		width: 109px !important;
+	}
+
+    
+}
+@media only screen and (max-width: 967px) and (min-width: 851px){ 
+	#cuadro-horario {
+    	margin-left: 21%;
+    	margin-right: 18%;
+    	width: 58%;
+	}
+
+	.input-container h1{
+		font-size: 32px;
+	}
+}
+
+@media only screen and (max-width: 850px) {  
+	#cuadro-participante {
+    	width: 27%;
+	}
+
+	.registroMain-container {
+    	padding: 50px 50px 50px 50px;
+	}
+
+	#fecha-esperada {
+    	padding: 0px 25px;
+	}
+
+	#cuadro-horario {	
+    	margin-left: 17%;
+    	margin-right: 17%;
+	}
+
+	.horariosMain-container {
+    	width: 67%;
+	}
+
+	.input-container h1{
+		font-size: 31px;
+	}
+
+	#emails{
+		width: 183px !important;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+
+    .registroMain-container {    
+    	padding: 50px 20px 50px 20px;
+	}
+
+	.contenedor-personalizado{
+		display: inline;
+	}
+
+	.campo-nombre-apellido{
+		width: 100%
+	}
+
+	#cuadro-participante {
+    	width: 26%;
+	}
+
+	#cuadro-horario {
+    	margin-left: 19%;
+    	margin-right: 19%;
+    	width: 62%;
+	}
+}

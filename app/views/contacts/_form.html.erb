@@ -1,0 +1,188 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+
+<div class="bxslider"></div>
+<br><br><br>
+<div class="hidden-md hidden-lg hidden-xs" style="display: none;" >
+    <br>
+</div>
+<div class="hidden-xs " style="text-align: center; margin-top: 67px !important;">
+    <br>
+            <!--Slider index-->
+
+    <div class="slider">
+        <div class="slide_viewer">
+            <div class="slide_group">
+                <div class="slide">
+                    <a target=""><%= image_tag('Contactos/banner.jpg', style: "width:100vw;") %> </a>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <div class="container contacto-main-container">
+        <div class="row campus-row-container">
+            <div class="container campus-izq-container">
+                <div class="row titulo-container">
+                    <h4 class="titulo-h4">CAMPUS LAS PEÑAS</h4>
+                </div>
+                <div class="row info-row-main-container">
+                    <div class="info-container">
+                        <div class="info" style="width: 100%;padding: 16px 0px;">
+                            <div class="info-icono-container1" style="width: 20%">
+                                <%= image_tag("Contactos/flecha", class: "icono-contacto") %>
+                            </div>
+                            <div class="info-subcontainer" style="width: 80%">
+                                <p class="direccion-h5"></p>
+                                <br>
+                                <p class="direccion-h5">Malecón 100 y Loja, Bloque A, Of. 104.</p>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="numeros-container">
+                            <div class="numeros-icono-container">
+                                <%= image_tag("Contactos/telf", class: "icono-contacto") %>
+                            </div>
+                            <p class="extension-h5">+593(4)</p>
+                            <div class="info-subcontainer">
+                                <div class="telefono-container">
+                                    <P class="telefono-h5">2081 040</P>
+                                    <P class="telefono-h5">2081 043</P>
+                                    <P class="telefono-h5">2081 014</P>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="email">
+                            <div class="email-icono-container">
+                                <%= image_tag("Contactos/correo", class: "icono-contacto") %>
+                            </div>
+                            <div class="info-subcontainer">
+                                <P class="email-h5">educon@espol.edu.ec</P>
+                                <P class="email-h5">educon2@espol.edu.ec</P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-container">
+                        <h4>UBICACIÓN</h4>
+                        <iframe width="100%" height="61%" src="https://www.youtube.com/embed/z_ZK3bdqPGg"frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="container campus-der-container">
+                <div class="row titulo-container">
+                    <h4 class="titulo-h4">CAMPUS GUSTAVO GALINDO</h4>
+                </div>
+                <div class="row info-row-main-container">
+                    <div class="info-container">
+                        <div class="info" style="width: 100%">
+                            <div class="info-icono-container2" style="width: 20%">
+                                <%= image_tag("Contactos/flecha", class: "icono-contacto") %>
+                            </div>
+                            <div class="info-subcontainer" style="width: 80%">
+                                <P class="direccion-h5">Avenida Principal de la Espol</P>
+                                <p class="direccion-h5">Edificio del Centro de Educación Continua junto al Edificio de Admisiones Ing. Enrique Bayot Aráuz</p>
+                            </div>
+                        </div>
+                        <div class="numeros-container">
+                            <div class="numeros-icono-container">
+                                <%= image_tag("Contactos/telf", class: "icono-contacto") %>
+                            </div>
+                            <P class="extension-h5">+593(4)</P>
+                            <div class="info-subcontainer">
+                                <div class="telefono-container">
+                                    <p class="telefono-h5">2269 763</p>
+                                    <p class="telefono-h5">2269 764</p>
+                                    <p class="telefono-h5">2269 759</p>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="email">
+                            <div class="email-icono-container">
+                                <%= image_tag("Contactos/correo", class: "icono-contacto") %>
+                            </div>
+                            <div class="info-subcontainer">
+                                <p class="email-h5">capacec@espol.edu.ec</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-container">
+                    <h4>UBICACIÓN</h4>
+                         <iframe width="100%" height="50%" src="https://www.youtube.com/embed/H0OHUS_4UaY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+<hr class="linea-horizontal">
+        <div class="emailForm-main-container">
+            <h2>DÉJANOS UN MENSAJE</h2>
+            <%= form_for @contact do |f| %>
+            <%= render 'shared/contact_errors' %>
+            <form>
+                <div class="emailForm-subContainer">
+                    <div class="emailForm-inputContainer-izq">
+                        <div class="input-container">
+                            <div class="icon-container">
+                                <%= image_tag("Contactos/cont", class: "icono-contacto") %>
+                            </div>
+                            <div style="width: 101%;">
+                                <%= f.text_field :nombre, class: 'email-input', type:'text', placeholder:'Nombre' %>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="emailForm-inputContainer-center" >
+                        <div class="input-container" style="margin-right: 3%;width: 54%;">
+                            <div class="icon-container">
+                                <%= image_tag("Contactos/correo", class: "icono-contacto") %>
+                            </div>
+                             <%= f.email_field :email, class: 'email-input', type:"email", placeholder:'Email' %>
+                        </div>
+                        <div class="input-container">
+                            <div class="icon-container" style="height: 50px;">
+                                <%= image_tag("Contactos/movil", class: "icono-contacto") %>
+                            </div>
+                            <%= f.text_field :telefono, class: 'email-input telef', type:'number', placeholder:'Telefono' %>
+                        </div>
+                    </div>
+                    <div class="emailForm-inputContainer-der">
+                        
+                        <div class="input-container">
+                            <div class="icon-container">
+                                <%= image_tag("Contactos/mens", class: "icono-contacto") %>
+                            </div>
+                            <div style="height: 165px;width: 100%;">
+                                <%= f.text_area :mensaje, class: 'email-input', placeholder:'Mensaje' %>
+                            </div>
+                             
+                        </div>
+                        <%= f.submit 'ENVIAR', class: 'enviar-btn' %>
+                    </div>
+                </div>
+            </form>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+ 
+      
+<%= javascript_include_tag "popupindex" %>
+<%= javascript_include_tag "slideindex" %>
+
+<%= stylesheet_link_tag 'contacts'%> 
+<%= stylesheet_link_tag 'popupindex'%> 
+<%= stylesheet_link_tag 'slider'%>
+<%= stylesheet_link_tag 'honest', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => true %>

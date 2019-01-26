@@ -1,0 +1,204 @@
+
+<!-- Off screen navigation -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+
+<div class="bxslider"></div>
+<br><br><br>
+<div class="hidden-md hidden-lg hidden-xs" style="display: none;" >
+    <br>
+</div>
+<div class="hidden-xs " style="text-align: center; margin-top: 67px !important;">
+
+<div id="contenedor">
+<div id="cuadro1-corporativo">
+    
+    <div id="cuadro1-texto">
+        <div id="tex1">
+            <h1 id="tex1-titulo" >CORPORATIVO</h1>
+        </div>
+        <div id="tex2">
+             <h2 id="tex2-titulo" >EDUCACIÓN EJECUTIVA</h2>
+        </div>
+    </div>
+</div>
+
+<div id="cuadro1-texto-parrafo">
+        <p id="textos">Diseño y desarrollo de un plan de formación puntual y "A LA MEDIDA" según las necesidades de su negocio, que le permitirá lograr una mejor posición competitiva para su empresa. </p>
+    </div>
+<div id="cuadro2-corporativo" >
+       
+    
+    <div id="cuadro2-texto">
+        <h1 class="titulo">BENEFICIOS EN NUESTROS PROGRAMAS CORPORATIVOS</h1>
+        <ul id="listas">
+            <li class="listVineta">Detección de necesidades de su empresa</li>
+            <li class="listVineta">Diseño curricular a la medida</li>
+            <li class="listVineta">Creación de los contenidos y los materiales de aprendizaje</li>
+            <li class="listVineta">Programa único que refleja la cultura y satisfacción de la organización</li>
+            <li class="listVineta">Ejecución del evento en sus instalaciones o en las nuestras</li>
+        </ul>
+    </div>
+</div>
+
+<div id="cuadro3-corporativo">
+    <form action="/registroCorporativo" method="GET">
+        <button id="btn-contruye">Construye tu programa</button>
+    </form>
+</div>
+
+<div id="cuadro4-corporativo">
+   <h2 id="algunos">ALGUNOS DE NUESTROS CURSOS REALIZADOS</h2>
+</div>
+
+<div id="cuadro5-corporativo">
+    <% if not @error %>
+    <div class="container">
+        <div class="row products-container"> 
+            <br>
+            <% @num=0 %>
+            <% @nnn = "nnn" %>
+            <% @arrayArea.each do |area| %>
+            <% @num = @num + 1 %>
+                <% @arrayCorp.each do |corpo| %>
+                     <% if corpo.area_id == area.id   %>
+                           <div class="col-md-4 col-sm-6 col-xs-12 product" id="<%= @nnn + @num.to_s%>">
+                                <div class="thumbnail">
+                                <br>
+                                <div class="Areas">
+                                    <h3 class="tituSector"><%= area.sector %></h3>
+                                    <%= link_to image_tag(corpo.imagen), "/detalle/#{corpo.nombre.gsub(" ","-")}" %>
+                                    <div class="espacio"></div>
+                                </div>
+                                
+                                </div>
+                            </div>
+                        <% corpo.area_id = nil%>
+                     <% end %>
+                <% end %>
+            <% end %>
+
+
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+    <% else %>
+        <%= @error %>
+    <% end %>    
+</div>
+<br><br>
+<hr></hr>
+<div style="background: #ffffff;padding-top: 20px;padding-bottom: 50px;height: 220px; margin-top:50px;"> 
+  <p class="letrasindex">NUESTROS CLIENTES</p><br>  
+    <hr id="lineHorizontal"></hr>
+    <div class="container">
+       <div class="row" >
+            
+                <div id="myCarousel" class="carousel slide" style="border: 0px solid #333;height: 120px;padding-bottom: 10px;">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    <li data-target="#myCarousel" data-slide-to="4"></li>
+                    <li data-target="#myCarousel" data-slide-to="5"></li>
+                    <li data-target="#myCarousel" data-slide-to="6"></li>
+                </ol>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/0.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/1.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/2.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/3.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/4.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/5.png', class: "d-block w-100") %></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/6.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/7.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/8.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/9.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/10.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/11.png', class: "d-block w-100") %></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/12.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/13.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/14.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/15.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/16.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/17.png', class: "d-block w-100") %></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/18.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/19.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/20.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/21.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/22.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/23.png', class: "d-block w-100") %></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/24.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/25.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/26.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/27.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/28.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/29.png', class: "d-block w-100") %></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/30.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/31.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/32.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/33.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/34.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2"><%= image_tag('Clientes/35.png', class: "d-block w-100") %></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3"><%= image_tag('Clientes/36.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-3 col-md-3 col-sm-3"><%= image_tag('Clientes/37.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-3 col-md-3 col-sm-3"><%= image_tag('Clientes/38.png', class: "d-block w-100") %></div>
+                            <div class="col-lg-3 col-md-3 col-sm-3"><%= image_tag('Clientes/39.png', class: "d-block w-100") %></div>
+                        </div>
+                    </div>
+                </div><!--/carousel-inner-->
+            </div><!--/myCarousel-->
+    </div>
+</div><!--.container-->  
+</div> 
+</div>
+
+
+<script type="text/javascript">
+    
+
+    $(document).ready(function() {
+        $('#myCarousel').carousel({
+            interval: 3000
+      })
+    });
+  
+</script>
+<%= stylesheet_link_tag 'corporativo'%> 

@@ -1,0 +1,420 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+
+<%@ Page Title="Espol - CEC - Maestrias, Cursos, Seminarios en Guayaquil:Busqueda por fechas" Language="C#" MasterPageFile="~/cecTemplate.master" AutoEventWireup="true" Inherits="Busqueda_fechas" Codebehind="Busqueda_fechas.aspx.cs" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<link rel="stylesheet" href="css/redmond/jquery-ui-1.7.2.custom.css" type="text/css" />
+<link rel="stylesheet" href="css/ui.slider.extras.css" type="text/css" />
+
+<script type="text/javascript" src="js/jquery-ui-1.7.1.custom.min.js"></script>
+<script type="text/javascript" src="js/selectToUISlider.jQuery.js"></script>
+
+
+
+	
+	
+<div id="contenedor"> 
+	<div class="center">     
+    	<div style="margin:10px;width:970px;margin-left:70px;">
+                <div class="izquierda left"> 
+                	 
+                     <div class="out"><div class="in2"><div class="in">
+                        <div class="cuerpo_interno">
+                            <div class= "cuerpo_interno_arriba">
+                            
+                            <div>
+                           
+                              <!-- curso uno -->	
+                              
+                              <div><h1>Programación Mensual</h1></div> 	 
+                             <div>
+                            	
+                          <br />
+                 <div  id="buscadorXfechas" style="display:none;">
+                 <br /><img src="img/opciones/search.png" alt="icono search" style="float:left;margin:3px;" />
+                  <h2 style="color:#ffa500;">
+                  <strong> BUSCAR POR RANGO DE FECHAS:</strong></h2><br />
+                          
+               <form class="buscar_fecha" action="Busqueda_general.aspx" >
+               
+		<fieldset class="fieldset_buscar">
+            
+			<label for="valueAA">Desde:</label>
+			<select name="valueAA" id="valueAA" runat="server">
+				
+					<option value="201001">Enero 2010</option>
+					<option value="201002">Febrero 2010</option>
+					<option value="201003">Marzo 2010</option>
+					<option value="201004">Abril 2010</option>
+					<option value="201005">Mayo 2010</option>
+					<option value="201006">Junio 2010</option>
+					<option value="201007">Julio 2010</option>
+
+					<option value="201008">Agosto 2010</option>
+					<option value="201009">Septiembre 2010</option>
+					<option value="201010">Octubre 2010</option>
+					<option value="201011">Noviembre 2010</option>
+					<option value="201012">Diciembre 2010</option>
+				
+				
+					<option value="201101">Enero 2011</option>
+
+					<option value="201102">Febrero 2011</option>
+					<option value="201103">Marzo 2011</option>
+					<option value="201104">Abril 2011</option>
+					<option value="201105">Mayo 2011</option>
+					<option value="201106">Junio 2011</option>
+					<option value="201107">Julio 2011</option>
+
+					<option value="201108">Agosto 2011</option>
+					<option value="201109">Septiembre 2011</option>
+					<option value="201110">Octubre 2011</option>
+					<option value="201111">Noviembre 2011</option>
+					<option value="201112">Diciembre 2011</option>
+			
+
+			</select>
+	
+			<label  for="valueBB">Hasta:</label>
+			<select name="valueBB" id="valueBB" runat="server">
+				 
+					<option value="201001">Enero 2010</option>
+					<option value="201002">Febrero 2010</option>
+					<option value="201003">Marzo 2010</option>
+					<option value="201004">Abril 2010</option>
+					<option value="201005">Mayo 2010</option>
+					<option value="201006">Junio 2010</option>
+					<option value="201007">Julio 2010</option>
+
+					<option value="201008">Agosto 2010</option>
+					<option value="201009">Septiembre 2010</option>
+					<option value="201010">Octubre 2010</option>
+					<option value="201011">Noviembre 2010</option>
+					<option value="201012">Diciembre 2010</option>
+			
+					<option value="201101">Enero 2011</option>
+
+					<option value="201102">Febrero 2011</option>
+					<option value="201103">Marzo 2011</option>
+					<option value="201104">Abril 2011</option>
+					<option value="201105">Mayo 2011</option>
+					<option value="201106">Junio 2011</option>
+					<option value="201107">Julio 2011</option>
+
+					<option value="201108">Agosto 2011</option>
+					<option value="201109">Septiembre 2011</option>
+					<option value="201110">Octubre 2011</option>
+					<option value="201111">Noviembre 2011</option>
+					<option value="201112">Diciembre 2011</option>
+				
+			</select>
+		</fieldset>
+		
+        <asp:Button CssClass="btn_fecha" ID="btnBuscar" runat="server" Text="Buscar Programa" 
+                   onclick="btnBuscar_Click" />
+		
+	</form>
+    <br /> 
+    </div>
+    <img src="img/opciones/calendar.png" alt="icono calendario" style="float:left;margin:3px;" /> <h2 style="color:#ffa500;"><strong>
+                                     REVISA EL CALENDARIO MENSUAL:</strong></h2><br />
+    <br /><br />
+    <div style="border:1px solid #666; width:672px; padding-bottom:10px;" >
+    <div style="width:372px; background-color:#1378af; padding-left: 300px; color:White; font-size:12px; height:30px; margin:0;" >
+    <strong>Calendario 2014</strong>
+        <a href="http://www.cec.espol.edu.ec/Publicaciones/Archivos/Portafolio_2014.pdf" target="_blank">
+		        <img src="img/pdf_btn.png" alt ="" style="float:right;" height="20px" width="124px"/>
+		</a>
+        <!-- <asp:ImageButton runat="server" ImageUrl="~/img/pdf_btn.png" CssClass="btn_pdf" 
+            ID="btnDescargar" Height="20px" Width="124px" 
+            onclick="btnDescargar_Click" />-->
+        </div>
+       <div style=" width:672px; height:30px; margin-top:0; background-image:url(img/rotulo_curso.jpg); background-repeat:repeat-x; background-position:top center; margin-bottom:5px;">
+       <asp:ImageButton runat="server" ImageUrl="~/img/flecha_izq.jpg"  
+               CssClass="boton_izq_calendar" ID="btnAnterior" 
+               onclick="btnAnterior_Click" />
+       <asp:ImageButton runat="server" ImageUrl="~/img/flecha_der.jpg" 
+               CssClass="boton_der_calendar" ID="btnSiguiente" 
+               onclick="btnSiguiente_Click" />
+      <div id="frm_meses" class="form_clases">
+      <label>Mes:</label><asp:DropDownList CssClass="ddl_meses" ID="ddl_mes_calendar" 
+          runat="server" AutoPostBack="True" 
+              onselectedindexchanged="ddl_mes_calendar_SelectedIndexChanged" >
+      <asp:ListItem Value="01">Enero</asp:ListItem>
+                                   <asp:ListItem Value="02">Febrero</asp:ListItem>
+                                   <asp:ListItem Value="03">Marzo</asp:ListItem>
+                                   <asp:ListItem Value="04">Abril</asp:ListItem>
+                                   <asp:ListItem Value="05">Mayo</asp:ListItem>
+                                   <asp:ListItem Value="06">Junio</asp:ListItem>
+                                   <asp:ListItem Value="07">Julio</asp:ListItem>
+                                   <asp:ListItem Value="08">Agosto</asp:ListItem>
+                                   <asp:ListItem Value="09">Septiembre</asp:ListItem>
+                                   <asp:ListItem Value="10">Octubre</asp:ListItem>
+                                   <asp:ListItem Value="11">Noviembre</asp:ListItem>
+                                   <asp:ListItem Value="12">Diciembre</asp:ListItem>
+      </asp:DropDownList>
+      </div>
+       </div>
+       
+                               <asp:GridView ID="dgv_datos" BorderStyle="None" runat="server" AllowPaging="True" DataSourceID="ObjectDataSource1" BorderColor="White" BorderWidth="0"   AutoGenerateColumns="False" ShowHeader="False">
+                                 <PagerStyle  BackColor="White" Font-Bold="true" ForeColor="#1378af" Font-Size="Medium" HorizontalAlign="Center" VerticalAlign="Middle" Wrap="False"  BorderStyle="None" Width="100%" />                                 
+                                                                
+                                    <Columns>
+                                    <asp:TemplateField>
+                                    <ItemTemplate>
+                                    
+                                    
+                                 
+                                    <script type="text/javascript">
+                                        $(function() {
+                                            $('#container-<%#Container.DataItemIndex+1%>').tabs({ fxAutoHeight: true, fxFade: true, fxSpeed: 'fast' });
+                                        });
+                                   </script>
+                                    
+                                    
+                                    
+                                    <!-- Empieza a maquetarse el curso -->	
+                                    <div class="curso">
+                            	<div><a class="titulo_curso_item" href="Detalle.aspx?codigo=<%# Eval("codigo")%>"><strong><%# Eval("nombre")%></strong></a></div>
+                             <div id="container-<%#(Container.DataItemIndex+1) %>">
+                              <div id="fragment-<%#(Container.DataItemIndex+1)*5%>">
+                                <br />
+                                <div class="curso_imagen"><img src ="img/logos_facultades/<%# Eval("LOGO")%>" alt="logos facultades" style="border:1px solid #ccc;" /></div>
+                        
+                                	
+                                	 <div class ="curso_descrip1">
+                                        <h2><strong>Temario:</strong></h2> 
+                                        <p style="width:100%;"><%# Entidades.clsUtilidades.LimpiarHtml(Eval("CONTENIDO").ToString())%></p>
+                                    
+                                       
+                                    
+                                    </div>
+                                    
+                                     <div class="curso_descrip_contacto mediana">
+                                            <div style="width:97%; background-color:#1378af; padding:3px;"><h4 style="color:White;"><strong><%#Eval("tipoCapac")%></strong></h4></div>
+                                            <strong>Modalidad:</strong><%#Eval("MODALIDAD")%><br/>
+                                            <strong>Duraci&oacute;n:</strong><%#Eval("DURACION")%> Horas<br />
+                                            <strong>Inicio:</strong> <%#Eval("finicio")%> <br />
+                                    </div>
+                                    
+                                	
+                                	
+                                	
+                                	
+                                	
+                                    <div class="clearfix"></div>
+                                    <div style="width:100%; text-align:right; margin-right:10px;">
+                                     <br />
+                                    <a style="font-size:11px; cursor:pointer; text-decoration:inherit; color:#0094ff" href='Detalle.aspx?codigo=<%# Eval("codigo")%>'><strong> 
+                                        m&aacute;s detalles &gt; &gt;</strong></a>
+                                    </div>
+                             
+                              <div class="clearfix"> </div>        
+                              </div>
+                              <div id="fragment-<%#(Container.DataItemIndex+1)*6%>">
+                                  <h2><strong>Temario:</strong></h2>
+                                  <p> <%# Entidades.clsUtilidades.LimpiarHtml(Eval("CONTENIDOC").ToString())%> </p>
+                              </div>
+                              <div id="fragment-<%#(Container.DataItemIndex+1)*7%>">
+                                
+                                 <!-- AddThis Button BEGIN -->
+                                
+                                <div style=" width:80%; margin-top:7px;margin-left:auto; margin-right:auto; ">
+                                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b3a3e6711861ea2"></script>
+                                <span style="margin-left:7px;font-size:12px;"><strong>Comparte nuestros cursos en 
+                                    las principales redes sociales:</strong></span><br />
+                                <a href="http://www.facebook.com/sharer.php?u=http://www.cec.espol.edu.ec/Detalle.aspx?codigo=<%# Eval("codigo")%>&c=1&t=<%# Eval("nombre")%>"  target="_blank"><img style="padding:2px;" src="img/canales/facebook_babge_compartir.png" alt="Facebook" /></a>
+                                <a href="http://twitter.com/home?status=RT%20@cecespol: <%# Eval("nombre")%> %20http://www.cec.espol.edu.ec/Detalle.aspx?codigo=<%# Eval("codigo")%>"  target="_blank"><img style="padding:2px;" src="img/canales/twitter_babge_compartir.png" alt="Twitter" /></a>
+                                <a href="http://www.myspace.com/Modules/PostTo/Pages/?u=http://www.cec.espol.edu.ec/Detalle.aspx?codigo=<%# Eval("codigo")%>&t=<%# Eval("nombre")%>"  target="_blank"><img style="padding:2px;" src="img/canales/myspace_babge_compartir.png" alt="My Space" /></a>
+                                 <a href="http://www.addthis.com/bookmark.php" class="addthis_button_email" addthis:url="http://www.cec.espol.edu.ec/Detalle.aspx?codigo=<%# Eval("codigo")%>"  target="_blank" addthis:title="<%# Eval("nombre")%>" addthis:description="<%# Eval("nombre")%>">
+                                <img style="padding:2px;" src="img/canales/mail_babge_compartir.png" alt="Email" /></a>
+                                </div>
+                             <!-- AddThis Button END -->
+
+
+                              </div>
+                             
+                              <ul class="tabs-list">
+                                  <li><a href="#fragment-<%#(Container.DataItemIndex+1)*5%>"><span><img src="img/ico_curso_info.jpg" alt="informacion del curso" /> <strong>
+                                      Información </strong></span></a></li>
+                                  <li><a href="#fragment-<%#(Container.DataItemIndex+1)*6%>"><span><img src="img/ico_curso_temario.jpg" alt="temario del curso" /> <strong> 
+                                      Temario </strong></span></a></li>
+                                  <li><a href="#fragment-<%#(Container.DataItemIndex+1)*7%>"><span><img src="img/ico_curso_compartir.jpg" alt="compartir curso" /> <strong> 
+                                      Compartir </strong></span></a></li>
+                              </ul>
+                             
+                          </div>
+                       </div>
+                       <br />
+                        <div class="clearfix"> </div> 
+                                    
+                                  <!-- Termina de maquetarse el curso -->     
+                                    
+                                    </ItemTemplate>
+                                     
+                                    </asp:TemplateField>
+                                    </Columns>
+                                    
+                                </asp:GridView>
+                                                         <br />
+                                
+                                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" SelectCountMethod="Obtener_NUM_Planificados" SelectMethod="Obtener_REG_Planificados" TypeName="Negocio.negCurso" MaximumRowsParameterName="row_max" StartRowIndexParameterName="row_ini" >
+                                <SelectParameters> </SelectParameters>
+                                </asp:ObjectDataSource>
+                                               
+                          
+                              </div>
+
+                          </div>
+                       </div>
+                        <div class="clearfix"> </div> 
+                       <br />
+                         <!-- curso dos -->	
+                         
+                              
+                       
+                       
+                            <div class="clearfix"> </div>    
+                            
+                            </div>
+                            
+                            
+                            </div>
+ 			
+                            <div class= "cuerpo_interno_abajo">
+                            </div>
+                       
+                    </div></div></div>
+                    <div class="clearfix"> </div> 
+               </div>  
+	   
+                   <div class="derecha">
+                <!-- Div Calendario -->
+                <div class="out">
+                    <div class="in2">
+                        <div class="in">
+                            <div class="cuerpo_interno">
+    	                        <div class="calendarBox">
+            	                        <div class="titulo_box">PROGRAMACI&Oacute;N MENSUAL:</div>
+            	                        <div>
+            	                          <p style="color:#F90; margin-top:5px;"><strong><asp:Literal ID="lblmes" runat="server"/></strong></p>
+                  	                        <asp:BulletedList ID="bulmensual" DisplayMode="LinkButton" BulletStyle="Square"  runat="server" 
+                                                CssClass="ultimos_calendario" onclick="bulmensual_Click" />
+            	                        </div>
+                                        <div style="border-bottom:#CCC 1px dotted; text-align:right; margin-top:10px;"><a href="Busqueda_fechas.aspx" style="color:#FFF; text-decoration:none;">Ver m&aacute;s &gt; &gt; &gt;</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="out"><div class="in2"><div class="in">
+                        <div class="cuerpo_interno">
+                            <img src="img/rotulo_cec_07.png" alt="cabecera widget de busqueda" />
+                               <div id="flip-tabs" >  
+   							     <ul id="flip-navigation" >  
+   	                               <li class="selected"><a href="#" id="tab-0"><strong>Todos</strong></a></li>  
+   						           <li><a href="#" id="tab-1"><strong>Por &Aacute;rea</strong></a></li>  
+   						           <li><a href="#" id="tab-2"><strong>Por tipo</strong></a></li>  
+                                </ul>  
+                               <div id="flip-container" >  
+                                    <div>
+                                    <p style="padding-left:17px; padding-top:5px;">   &Uacute;ltimos cursos:    
+                                     	<asp:BulletedList ID="bulTodas"  runat="server" 
+                                                DisplayMode="LinkButton" CssClass="ultimos_items" BulletStyle="Square" 
+                                            onclick="bulTodas_Click" />
+                                    </div>  
+                                    <div>  
+                                         <asp:UpdatePanel runat="server" ID="updatepanel_area">
+                                        <ContentTemplate>
+                                            <asp:DropDownList ID="ddlAreas" runat="server" AutoPostBack="True" 
+                                                CssClass="area_drop" onselectedindexchanged="ddlAreas_SelectedIndexChanged"  />
+                                                <br /><asp:Label ID="lblmsje" runat="server" Font-Bold="True" Text="" CssClass="mensaje_widget"></asp:Label>
+                                            <asp:BulletedList ID="bulCurso_Area" runat="server" CssClass="ultimos_items" BulletStyle="Square" 
+                                                DisplayMode="LinkButton" onclick="bulCurso_Area_Click"/>
+                                        </ContentTemplate>
+                                        
+                                          <Triggers>
+                                              <asp:AsyncPostBackTrigger ControlID="ddlAreas" 
+                                                  EventName="SelectedIndexChanged" />
+                                              <asp:AsyncPostBackTrigger ControlID="bulCurso_Area" EventName="Click" />
+                                          </Triggers>
+                                        
+                                      </asp:UpdatePanel>
+                                    </div>  
+                                    <div>  
+                                      <asp:UpdatePanel runat="server" ID="updatepanelTipo">
+                                        <ContentTemplate>
+                                            <asp:DropDownList ID="ddlTipoCap" runat="server" AutoPostBack="True" 
+                                                CssClass="area_drop" onselectedindexchanged="ddlTipoCap_SelectedIndexChanged"/>
+                                                <br /><asp:Label ID="lblmsje1" runat="server" Font-Bold="True" Text="" CssClass="mensaje_widget"></asp:Label>
+                                            <asp:BulletedList ID="bulTipo" runat="server" CssClass="ultimos_items" BulletStyle="Square" 
+                                                DisplayMode="LinkButton" onclick="bulTipo_Click"/>
+                                        </ContentTemplate>
+                                         <Triggers>
+                                             <asp:AsyncPostBackTrigger ControlID="ddlTipoCap" 
+                                                 EventName="SelectedIndexChanged" />
+                                         </Triggers>
+                                     </asp:UpdatePanel>
+                                    </div> 
+                                   </div>  
+                               
+                              <div style="background-color:#1378af; height:30px; color:#fff; padding-top:7px;"><a href="Cursos_planificados.aspx" style="color:White; text-decoration:none;margin-left:28px; padding-top:10px; font-size:12px;">Ver más información &gt; &gt; </a></div> 
+                          
+                            </div>
+                        </div>
+                    </div></div></div>
+                    
+                    
+                 
+                    
+                     <div class="out"><div class="in2"><div class="in">
+                        <div class="cuerpo_interno">
+                        	<div class="titulo_interno">Publicidad</div>
+                            <div>
+                            <script language="javascript" src="http://www.cec.espol.edu.ec/ads/Default.aspx?mode=show&amp;category=4"></script>
+                            </div>
+                        </div>
+                    </div></div></div>
+               
+                    <div class="out"><div class="in2"><div class="in">
+                        <div class="cuerpo_interno">
+                            <div> <!-- aqui empieza el tagcloud -->	
+                            <div id="text">
+                             <div style="border-top:#000 3px solid; padding:5px;"><img alt="Titulo voltaje" src="img/tags_title.jpg" />
+                             <br /><br />
+                             Encuentra Programas, Cursos, seg&uacute;n su palabra clave:</div>  
+                            </div>
+                            <div id="dynacloud">
+                            <% foreach (System.Data.DataRow Item in tags.Rows){ %>
+                                  <a href="Busqueda_general.aspx?busqueda=<%=Item["pc_nombre"]%>" style="font-size:1<%=Item["total"]%>px; color:#2222FF; font-weight:bold; text-decoration:none;"><%=Item["pc_nombre"]%></a> 
+                               <!-- <a href="Busqueda_general.aspx?codarea=<%=Item["pc_codigo"]%>" style="font-size:1<%=Item["total"]%>px; color:#000; font-weight:bold; text-decoration:none;"><%=Item["pc_nombre"]%></a> -->
+                            <%} %>
+                            </div>
+                            
+                            </div>
+                        </div>
+                    </div></div></div>
+                    
+                    
+          
+                    
+                    
+               
+               </div>
+        </div> 
+        <br />
+   </div>
+   
+</div>
+</asp:Content>

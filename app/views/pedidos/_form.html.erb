@@ -1,0 +1,68 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+<%= form_for @pedido do |f| %>
+<%= render 'shared/msg' %>
+
+  
+  <br>
+  <div class="letra row-form">
+  <div class="col-md-2 col-md-12">
+    <span>
+     <%= f.text_field :nombre, class: 'slide-up', placeholder:'Nombre' %><%= f.label :Nombre %>
+    </span>
+  </div>  
+  <div class="col-md-4 col-md-12">
+    <span>
+     <%= f.text_field :email, class: 'slide-up', placeholder:'Correo Electronico' %><%= f.label :'Correo Electrónico' %>
+    </span>
+  </div>
+  <div class="col-md-4 col-md-12">
+    <span>
+     <%= f.text_area :direccion, class: 'slide-up', placeholder:'Dirección' %><%= f.label :Dirección %>
+    </span>
+  </div>
+   <div class="col-md-4 col-md-12">
+    <span>
+     <%= f.text_field :telefono, class: 'slide-up', placeholder:'Telefono' %><%= f.label :Teléfono %>
+    </span>
+  </div>
+     <div class="col-md-4 col-md-12">
+    
+     <!--<%= f.check_box :nombre ,class: 'slide-up' %>
+
+      <input id="pet_dog" name="pet_dog" type="checkbox" />
+      <label for="pet_dog" style="font-size: 18px; color: #000000;">Acepta términos y condiciones del Centro de Eduacion Continua</label>
+-->
+
+    <span style="color:#000000;">Para conocer las pol&iacuteticas y condiciones de servicios de click:
+      <b> <%= link_to "Aquí", "politica.pdf", target: "_blank"%></b></span>
+      <br>      
+    <input type="checkbox" id="c1" name="cc" />
+    <label for="c1" style="color:#000000;"><span></span> Acepto los términos y condiciones del Centro de Educaci&oacuten Continua-ESPOL</label>
+    
+    
+        
+    </div>
+     
+     
+  </div>
+        <div class="col-md-5 col-sm-3 col-xs-3 product" >
+      
+  </div>
+  <div class="col-md-4 col-sm-6 col-xs-9 product" >
+      <%= f.submit 'Finalizar', class: 'btn-form-pedidos' %>
+  </div>
+   
+<% end %>
+</div>
+<br>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+        <style type="text/css">
+        	h5 {
+        	   color: gray;
+        	}
+        </style>
+    </head>
+    <body> 
+        <div style="width: 100%;">
+            <%= image_tag('http://ec.espol.edu.ec/banner1.png', :style => "width: 100%" )%>
+        <p style="padding-bottom: 2%;font-family: arvo; font-weight: bold;" class="mensaje">Estimado(a): <%= @usuario.nombres %> <%= @usuario.apellidos %></p>
+        </div>
+        <p class="mensaje" style="color:black">Se ha generado el contenido del <%= @prospect.tipo %> <b> <%= @prospect.nombre %></b></p>
+        <p style="color: black">Gracias por utilizar nuestros servicios. Pronto un asesor se estará comunicando con usted para brindarle mayor información.</p>
+        <p style="color: black">Le recordamos que nuestros servicios de capacitación abarcan todas las áreas y niveles estratégicos.</p>
+        <p class="mensaje" style="color: black">Eche un vistazo a nuestra <%= link_to "Planificación.", @url+"/planificacion.pdf" %></p>
+        <p style="color: black">No se olvide preguntar por los beneficios que ofrecemos a empresas.</p>
+        <hr>
+
+
+        <div class="" style="margin-left: 37%;">
+            <div class="sideheadersocial">
+                <i style="padding-right: 3px;"></i>
+                    <%= link_to image_tag("http://ec.espol.edu.ec/f.png"),"https://facebook.com/econtinuaespol/", target: :_blank %>
+                <i style="padding-left: 3px;padding-right: 3px;"></i>
+                        <%= link_to image_tag("http://ec.espol.edu.ec/t.png"),"https://twitter.com/econtinuaespol", target: :_blank %>
+                <i style="padding-left: 3px;padding-right: 3px;"></i>
+                        <%= link_to image_tag("http://ec.espol.edu.ec/i.png"),"https://instagram.com/econtinuaespol", target: :_blank %>
+                <i style="padding-left: 3px;padding-right: 3px;"></i>
+                        <%= link_to image_tag("http://ec.espol.edu.ec/ik.png"),"https://www.linkedin.com/in/econtinuaespol/", target: :_blank %>
+            </div>
+        </div>
+
+        <hr>
+        <h5>Este correo electrónico fue generado automáticamente, favor no respondas al mismo.</h5>
+    </body>
+</html>

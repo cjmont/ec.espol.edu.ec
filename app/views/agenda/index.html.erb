@@ -1,0 +1,82 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+	<div class="hidden-xs " style="text-align: center; margin-top: 48px;">
+		<div class="row" style="margin:0px;">
+            <div class="banner">
+                <div class="slide">
+		      	<%= image_tag("Index/Banner/conferencia.jpg", style: "width:100vw;") %> 
+		      </div>
+		       </div>
+		    </div>
+		
+		  <div class="slide_buttons">
+		  </div>
+	</div>
+</div>
+<div class="container"> 
+	<div class="row agenda-searchBar-container">
+		<div class="container agenda-searchFecha-container">
+			<h3 class="agenda-searchBar-h3">Fecha:</h3>
+			<input class="agenda-searchBar-input" type="date" name="fecha" placeholder="dd/mm/yyyy">
+		</div>
+		<div class="container agenda-searchNombre-container">
+			<h3 class="agenda-searchBar-h3">Evento:</h3>
+			<input class="agenda-searchBar-input" type="text" name="evento" placeholder="Evento...">
+		</div>
+		<button class="btn agenda-searchBar-btn" type="submit">
+			Buscar
+		</button>
+	</div>
+	<div class="row agenda-titulo-row-container">
+		<h3>Eventos para <%= l @fecha, format: :corto %></h3>
+	</div>
+	<div class="row agenda-calendario-row-container">
+		<div class="container agenda-calendario-container">
+			<table class="table">
+			    <thead>
+					<tr class="tabla-header">
+						<th>Lunes</th>
+						<th>Martes</th>
+						<th>Miercoles</th>
+						<th>Jueves</th>
+						<th>Viernes</th>
+						<th>Sabado</th>
+						<th>Domingo</th>
+					</tr>
+			    </thead>
+			    <tbody>
+			    	<% @calendario.each do |semana|%>
+			    		<tr class="tabla-fila">
+			    		<% semana.each do |dias| %>
+			    			<% dias.each do |dia| %>
+			    				<td><p><%= dia %></p></td>
+			    			<%end%>
+			    		<%end%>
+			    		</tr>
+			    	<%end%>
+			    </tbody>
+			  </table>
+		</div>
+	</div>
+</div>
+<%= javascript_include_tag "popupindex" %>
+<%= stylesheet_link_tag 'popupindex'%> 
+<%= javascript_include_tag "slideindex" %>
+<%= stylesheet_link_tag 'slider'%>
+<%= stylesheet_link_tag 'agenda'%>

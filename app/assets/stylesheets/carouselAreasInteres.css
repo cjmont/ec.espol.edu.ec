@@ -1,0 +1,88 @@
+body {
+    padding-top:20px
+}
+#custom_carousel .item {
+    color:#000;
+    background-color:#fff;
+    padding:20px 0;
+}
+#custom_carousel .controls{
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding:0;
+    margin:0;
+    white-space: nowrap;
+    text-align: center;
+    position: relative;
+    background:#fff
+}
+#custom_carousel .controls li {
+    display: table-cell;
+    width: 1%;
+    max-width:90px
+}
+#custom_carousel .controls li.active {
+    background-color:#fff;
+    border-top:3px solid orange;
+}
+.carouselAreas {
+    margin-bottom: 0;
+    padding: 0px 200px 20px 180px;
+    border-left-width: 0px; 
+    border-right-width: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+}
+
+#custom_carousel_ul .controls{
+    background:#fff
+}
+#custom_carousel_ul .controls li {
+    
+    display: table-cell;
+    width: 1%;
+    max-width:90px;
+    padding-bottom: 1px;
+}
+#custom_carousel_ul .controls li.active {
+    background-color:#fff;
+    border-top:3px solid orange;
+}
+#custom_carousel_ul .controls li button {
+    opacity: 0.5;
+    width: 100px;
+    padding: 16px 7px 0px 7px;
+    border-width: 0px;
+    background:#fff
+}
+#custom_carousel_ul div p {
+    padding-top: 35px;
+}
+#custom_carousel_ul .controls li button:focus {
+    outline:0;
+    opacity: 1.0;
+}
+#custom_carousel_ul .controls li button:hover {
+    opacity: 1.0;
+}
+small {
+    overflow:hidden;
+    display:block;
+    font-size:15px;
+    margin-top:8px;
+    margin-bottom: 10px;
+}
+.carouselAreasIcon {
+    padding: 0px 70px 0px 70px;
+    height: 198px;
+    border-left-width: 0px; 
+    border-right-width: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+}
+.flecha {
+    padding-top: 17px; 
+}
+.img-responsive {
+    margin: 0px auto;
+}

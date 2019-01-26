@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Calendario:</strong>
+  <%= @item_calendario.calendario %>
+</p>
+
+<p>
+  <strong>Lista:</strong>
+  <%= @item_calendario.lista %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @item_calendario.cantidad %>
+</p>
+
+<%= link_to 'Edit', edit_item_calendario_path(@item_calendario) %> |
+<%= link_to 'Back', item_calendarios_path %>

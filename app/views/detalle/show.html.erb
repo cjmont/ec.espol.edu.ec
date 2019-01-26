@@ -1,0 +1,323 @@
+
+
+<!--meta property="og:url"           content= "<%= request.fullpath %>" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content= "<%= @prospecto.nombre.upcase %>" />
+<meta property="og:description"   content= "<%= @contenido.descripcion %>" />
+<meta property="og:image"         content= "<%= "http://ec.espol.edu.ec" + @prospecto.imagen.to_s %>" /-->
+
+<!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+<div id="descargar-modal" class="descargar-modal">
+    <div id="content">
+    <div class="descargar-modal-content" id="descargar-modal-content">
+        <span class="close-modalbtn" id="descargar-modal-closeBtn">&times;</span>
+        <div class="descargar-modal-main-container">
+            <div class="login-container">
+                <h3 class="descargar-modal-header-titleH3" id="tituloDescargarModal-h3"> PARA DESCARGAR EL CONTENIDO INICIA SESIÓN </h3>
+                <h3 id="mensajeErrorLogin-h3"></h3>
+                <input class="form-control requerido" type="email" name="email" id="modal-email" placeholder="EMAIL">
+                <input class="form-control requerido" type="number" name="cedula" id="modal-cedula" placeholder="CÉDULA">
+                <input type="hidden" name="prospecto_id" id="prospecto_id" value="<%= @prospecto_id %>">
+                <input type="hidden" id="registro-field" name="registro" registro="false" value="false">
+                <% if not @evento.blank? %>
+                    <input type="hidden" name="prospecto_fecha" id="prospecto_fecha" value="<%= l @evento.fecha_inicio.to_s.to_time, format: :long  %>" >
+                    <input type="hidden" id="video-field" name="video" video="false" value="false">
+                <% end -%>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                
+
+                <button class="btn modal-btn" id="login-btn">INICIAR SESIÓN</button>
+            </div>      
+            <div class="registrarse-container">
+                <h3 class="descargar-modal-header-titleH3"> ¿NO TIENES CUENTA? </h3>
+                <form action="/registro" method="GET">
+                    <input type="hidden" name="prospecto_id" value="<%= @prospecto_id.gsub(" ","-") %>">
+                    <input type="hidden" name="registro" id="registro" value="false" />
+
+                    <% if not @evento.blank? %>
+                            <input type="hidden" name="evento" id="evento" value="<%= @evento.id %>" />
+                    <% end %>
+                    
+                    <button class="btn modal-btn" id="crearCuenta-btn">CREAR CUENTA</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="confirmar-modal" class="confirmar-modal">
+    <div id="content">
+        <div class="confirmar-modal-content" id="confirmar-modal-content" >
+            <span class="close-modalbtn" id="confirmar-modal-closeBtn" onclick="botonColor2()">&times;</span>
+            <div class="descargar-modal-main-container" style="vertical-align: middle;">
+                <div class="confirmar-container">
+                    <h3 class="confirmar-modal-header-titleH3">Seguro que desea registrarse en el curso 
+                    <%= @prospecto_id %> </h3>
+                        <button class="btn modal-btn" id="si-btn">SI</button>
+
+                        <button class="btn modal-btn" id="no-btn" onclick="botonColor2()">NO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="confirmacion-modal" class="confirmacion-modal">
+    <div class="confirmacion-modal-content" id="confirmacion-modal-content">
+        <span class="close-modalbtn" id="confirmacion-modal-closeBtn" onclick="botonColor2()">&times;</span>
+        <div class="confirmacion-container">
+            <h3 style="margin-bottom: 60px;">El contenido del curso seleccionado ha sido enviado a tu correo <b id="correoDeUsuario"></b>.</h3>
+            <div style="display: flex; width: 100%;">
+                <div style="width: 50%; text-align: center;">
+                    <h6 class="preguntaH6"><i>¿Este no es tu email?</i></h6>
+                    <form action="/registro" method="GET">
+                        <input type="hidden" name="usuario_id" id="usuario_id">
+                        <input type="hidden" name="prospecto_id" value="<%= @prospecto_id %>">
+                        <button type="submit" class="btn modal-btn" style="margin-top: 5px;">ACTUALIZAR MIS DATOS</button>
+                    </form>
+                    
+                </div>
+                <div style="width: 50%; text-align: center;">
+                    <button class="btn btn-secondary" id="confirmacion-modal-okButton">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-video">
+    <div id="sub_ventana" style="display: inline-flex;">
+        <div id="content-video" style="height: 350px; width: 560px; margin: 2px; background:rgba(0,0,0,0.7);opacity: 1;margin-top: 8%;">
+            <p id="btn-cerrar" onclick="cerrarVideo();">cerrar</p>
+            <div id="video-play">
+            </div>
+        </div>
+        <div id="ventana_chat" style="height: 350px; width: 560px; margin-top: 8%;">
+                <div id="video-chat"></div>
+            </div>
+    </div>
+</div>
+
+<div id="politica" class="politica">
+    <div class="politica-contenedor " id="politica-contenedor">
+        <span class="close-politicabtn" id="politica-closeBtn" onclick="botonColor2()">&times;</span>
+        <div class="politica-imagen">
+            <%= image_tag('Politicas/politicasEventoH',class: "imagenPolitica") %>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="detalle-main-container" id="detalle-custom-modal">
+    <div class="detalle-content">
+        <h1 class="prospecto-titulo"><%= @prospecto.nombre.upcase %></h1> 
+        <% if @estado == 2 %>
+            <div class="row contenido-main-container">
+                <div class="imgYcontenido-container">
+                    <div class="img-container">
+                        <%= image_tag(@prospecto.imagen,class: "prospecto-img") %>
+                    </div>
+                    <div class="contenido-container">
+                        <div class="prospecto-contenido-container">
+                            <p style="text-align: justify;"><%= @contenido.descripcion %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <% if not @evento.blank? %>
+                        <div class="info">
+                            <table style="width:100%">
+                              <tr>
+                                <th class="info_titulo"><b>Próximo evento</b> </th>
+                                <th class="info_descripcion">
+                                    <%= l @evento.fecha_inicio.to_s.to_time, format: :long  %>
+                                </th> 
+                               
+                              </tr>
+                            </table>                      
+                        </div>
+                        
+                    <% end %>
+                    <div class="info">
+                        <table style="width:100%">
+                              <tr>
+                                <th class="info_titulo"><b>Duración</b></th>
+
+                                <% horas = 0 %>
+                                <% if @contenido.horas_presenciales != nil%>
+                                    <% horas = @contenido.horas_presenciales %>
+                                <% end %>
+                                
+                                <% if @contenido.horas_autonomas != nil%>
+                                    <% horas = horas + @contenido.horas_autonomas %>
+                                <% end %>
+                                        
+                                <% if @contenido.horas_virtuales != nil%>
+                                    <% horas = horas + @contenido.horas_virtuales %>
+                                <% end %>
+
+                                <th class="info_descripcion">
+                                    <%= horas %>
+                                    
+                                     <% if horas > 1 %>
+                                        horas
+                                    <% else %>
+                                        hora
+                                    <% end %>
+                                    
+                                </th> 
+                              </tr>
+                            </table>  
+                        
+                    </div>
+                    <div class="info">
+                        <table style="width:100%">
+                              <tr>
+                                <th class="info_titulo"><b>Área de Capacitación</b></th>
+                                <th class="info_descripcion"><%= @prospecto.area.nombre %></th> 
+                              </tr>
+                            </table> 
+                    </div>
+                    <% if @prospecto.tipo!= "Charla" and @prospecto.tipo!= "Webinario" %>
+                        <div class="info">
+                            <table style="width:100%">
+                                  <tr>
+                                    <th class="info_titulo"><b>Políticas del evento</b></th>
+                                    <th class="info_descripcion"><button id="subs-btn-ver" onclick="botonColor()">Ver</button></th>
+                                  </tr>
+                                </table> 
+                        </div>
+                    <div class="info" style="border: 0px;">
+                        
+                            <table style="width:100%">
+                                  <tr>
+                                    <th class="info_titulo"><b>Contenidos</b></th>
+                                    <th class="info_descripcion"><button id="subs-btn" onclick="botonColor()">Descargar Contenido<div class="pdf"><%= image_tag('Detalle/icono-pdf.png',class: 'icon-pdf') %></div></button></th>
+                                  </tr>
+                                </table> 
+                    </div>
+                    <% end %> 
+                </div>
+            </div>
+            <% if @guardado == "true" %>
+                <input type="text" id="mensaje-registro" style="display: none;" name="mensaje-registro" value="<%= @guardado %>">
+                <div id="basico">
+                    <div id="spam-notificar"></div>    
+                </div>
+            <% elsif @guardado == "false" %>
+                <input type="text" id="mensaje-registro" style="display: none;" name="mensaje-registro" value="<%= @guardado %>">
+                <div id="basico">
+                    <div id="spam-notificar"></div>    
+                </div>
+            <% end %>
+            <div class="footer-container">
+                <div class="dirigidoA-container">
+                    <h5>Dirigido a: </h5>
+                    <% if @dirigido.length > 0 %>
+                        <ul>
+                            <% @dirigido.each do |d| %>
+                                <li><%= d.texto %></li>
+                            <% end %>
+                        </ul>
+                    <% else %>
+                        <ul>
+                            <li>Público en general.</li>
+                        </ul>
+                    <% end %>
+                </div>
+                
+                <div class="shared-container">
+                    <div id="mensaje-confirmacion" class="alert alert-success no-visible">
+                        Usted se ha registrado en el <%= @prospecto.tipo %>
+                    </div>
+                    <div id="mensaje-existe" class="alert alert-success no-visible">
+                        Usted ya se encuentra registrado en el <%= @prospecto.tipo %>
+                    </div>
+
+                    <!-- Botón de Registrate -->
+                    <% if @evento && (@prospecto.curso == nil or @prospecto.curso > 1) %>
+                        <button id="registrarte-btn" onclick="botonColor()" evento="<%= @evento.id %>">Regístrate aquí</button>
+
+                    <% end %>
+
+                    <!-- Botón de Ver Charla -->
+                    <% if not @evento.blank? %>
+                        <% fechaActual = Time.now %>
+                        <% horaDiferencia = @evento.fecha_inicio - fechaActual%>
+                        <% if (@prospecto.url_video) != nil && horaDiferencia < 3600 %><!-- habilita el botón ver charla 3600 segundos/una hora antes del evento-->
+                            <button id="video-btn"  onclick="botonColor()" evento="<%= @evento.id %>">Ver Charla</button>
+                            <input type="hidden" name="url_video" id="url_video" value="<%= @prospecto.url_video %>">
+                        <% end %>
+                    <% end -%>
+                    <h4>Comparte este curso con tus amigos</h4>
+                     <div class="redes-container" id="cambio-meta">
+                         <%= render_shareable :buttons=> ['twitter'] , :twitter=> {:send=> 'true', :url=> @url} %>
+                         <%= render_shareable :buttons=> ['linkedin'] , :linkedin=> {:send=> 'true', :url=> @url} %>
+                         <%= render_shareable :buttons=> ['facebook'] , :facebook=> {:send=> 'true', :url=> @url} %>
+                         <!--div class="fb-share-button" 
+                            data-href="<%= request.fullpath %>" 
+                            data-layout="button_count">
+                        </div-->
+                    </div>
+                </div>
+            </div>
+        <% else %>
+            <div class="mensaje-container">
+                <%= image_tag "Detalle/reparando.jpg" %>
+            </div>
+        <% end %>
+    </div>
+    <%= javascript_include_tag "detalle" %>
+</div>
+
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+         $(window).scroll(function(){
+        if ($(window).scrollTop()>80) {
+            var scr = $(window).scrollTop()/2;
+            if ($(window).scrollTop()>450) {scr= scr + scr/4}
+            var hoja = document.createElement('style');
+            hoja.innerHTML = "div #content{margin-top: "+String(scr)+"px;}";
+            document.body.appendChild(hoja);
+        }
+    });
+    });
+
+    function botonColor(){
+        var hoja2 = document.createElement('style');
+        hoja2.innerHTML = "div #search-btn{background-color: #999 !important;}";
+        document.body.appendChild(hoja2);
+    }
+
+    function botonColor2(){
+        var hoja2 = document.createElement('style');
+        hoja2.innerHTML = "div #search-btn{background-color: white !important}";
+        document.body.appendChild(hoja2);
+    }
+
+</script>
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>

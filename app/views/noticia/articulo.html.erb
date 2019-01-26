@@ -1,0 +1,88 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+	<div class="hidden-xs div_titulo"> 
+		<div class="noticia_titulo">
+			<b>NOTICIAS</b>
+			<div  style="font-size: 22px;">
+				<%= @tipo_noticia %>
+			</div>
+		</div>
+	</div>
+<% if not @error %>
+<div class="container principal-container"> 
+	<div class="container noticia-container">
+		<!--div class="row noticia-searchBar-container">
+			<div class="container noticia-searchFecha-container">
+				<h5 class="noticia-searchBar-h5">Fecha:</h5>
+				<input class="noticia-searchBar-input" type="date" name="fecha" placeholder="dd/mm/yyyy">
+			</div>
+			<div class="container noticia-searchNombre-container">
+				<h5 class="noticia-searchBar-h5">Nombre:</h5>
+				<input class="noticia-searchBar-input" type="text" name="nombre" placeholder="Nombre">
+			</div>
+			<div class="container noticia-searchVolumen-container">
+				<h5 class="noticia-searchBar-h5">Volumen:</h5>
+				<input class="noticia-searchBar-input" type="text" name="volumen" placeholder="Volumen">
+			</div>
+			<button class="btn noticia-searchBar-btn" type="submit">
+				Buscar
+			</button>
+		</div-->
+		<div class="row noticia-fechaHeader-container">
+			<h2 class="noticia-fecha-h2">DICIEMBRE 2017</h2>
+		</div>
+		<div class="row noticia-body-container">
+			<div class="row noticia-body-tipo-container">
+				<h1 class="info-noticia" ><b><%= @tipo_noticia %></b></h1>
+				<% if @noticia=="INFO EC" %>
+					<h3 class="info-slogan"><i>El que hacer de Educación Continua en la comunidad</i></h3>
+				<% else %>
+					<h3 class="info-slogan"><i>Innovación e investigación aplicada de ESPOL al servicio de la comunidad</i></h3>
+				<% end %>
+			</div>
+			<div class="row noticia-volumen-container">
+				<h4 class="volumen">Vol. N° <%= @noticia.edicion %></h4>
+				<h4 class="fecha-volumen"><%= l @noticia.publicacion , format: :largo %></h4>
+			</div>
+			<div class="row articulo-row-container">
+				<h2 class="articulo-titulo"><%= @articulo.titulo %></h2>
+				<%= image_tag(@articulo.imagen, class: "articulo-img") %>
+				<p class="articulo-contenido"><%= @articulo.contenido %></p>
+				<% if @noticia.tipo=="infoec" %>
+					<p class="articulo-contenido"><%= @articulo.escritor %> <%= @articulo.titulo %>. Espol - Educación Continua. Guayaquil, Ecuador.</p>
+				<% else %>
+					<!--a href="">Link de Articulo</a-->
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="container social-container">
+		<div class="container banner-container">
+			<%= image_tag("Noticia/LeyesIsoGIF.gif") %>
+		</div>
+		<div class="container tweeter-container">
+			<a class="twitter-timeline" data-width="100%" data-height="520" data-theme="light" data-link-color="#641177" href="https://twitter.com/econtinuaespol?ref_src=twsrc%5Etfw"></a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</div>
+	</div>
+</div>
+<% else %>
+	<div style="margin-top: 30px;"></div>
+<% end %>
+
+<%= stylesheet_link_tag 'noticias.css'%> 

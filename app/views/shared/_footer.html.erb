@@ -1,0 +1,33 @@
+
+<footer class="footer">
+	<div class=" on-page" style="background-color: white; text-align: left;">
+      <%= image_tag('Index/Footer/edificio.png',  class: 'background-image', alt:'Background') %>
+    </div>
+	<div style="margin: auto;">					 
+		<ul class="footer-navigation">
+				<li ><%= link_to 'Nosotros', nosotros_path %></li>
+				<!-- <li><%= link_to 'Noticias', "/noticias/newsletter" %></li> -->
+				<li><%= link_to 'Contacto',href="/contacto"%></li>
+		</ul>							
+	</div>
+	<div class="row footer-datos-row-container"> 
+		<div class="container footer-datos-container">
+			<p style="text-align: left;"><i>Guayaquil-Ecuador</i></p>
+			<p style="text-align: left;"><i>Campus Gustavo Galindo - km 30.5 via Perimetral / Teléfono: 2269763 </i> | <i>Campus Peñas - Malecon 100 y Loja / Teléfono 2081040 - 2081155</i></p>
+		</div>
+		<div class=" sideheadersocial2" >
+			<a><i style="padding-right: 3px;"></i>
+			<%= link_to image_tag("Index/Footer/face.png"),"https://facebook.com/econtinuaespol/", target: :_blank %></a>
+			<a><i style="padding-left: 3px;padding-right: 3px;"></i>
+			<%= link_to image_tag("Index/Footer/twit.png"),"https://twitter.com/econtinuaespol", target: :_blank %></a>
+			<!-- <a><i style="padding-left: 3px;padding-right: 3px;"></i>
+			<%= link_to image_tag("Index/Footer/inst.png"),"https://instagram.com/econtinuaespol", target: :_blank %></a> -->
+			<a><i style="padding-left: 3px"></i>
+			<%= link_to image_tag("Index/Footer/link.png"),"https://www.linkedin.com/in/econtinuaespol/", target: :_blank %></a>
+			<!-- <a><i style="padding-left: 3px;padding-right: 3px;"></i>
+			<%= link_to image_tag("Index/Footer/flik.png"),"https://flicker.com/econtinuaespol", target: :_blank %></a> -->
+			<a><i style="padding-left: 3px;padding-right: 3px;"></i>
+			<%= link_to image_tag("Index/Footer/you.png"),"https://www.youtube.com/channel/UCFya2vxuRYLD7BPiWpKtSgA?view_as=subscriber", target: :_blank %></a>
+		</div>
+	</div>		
+</footer>

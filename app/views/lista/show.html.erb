@@ -1,0 +1,150 @@
+<br>
+<br>
+<br>
+<div class="background-div">
+        <BR>Detalle de Inscripción <BR><BR>
+  </div>
+  <br>
+  <br>
+<div class="container">
+    <div class="agenda">
+        <div class="tab-content">
+            <div id="todos" class="tab-pane fade in active">
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-bordered">
+                            <thead >
+                                <tr>
+                                    <th class="table-th">Evento<BR></th>
+                                    <th class="table-th">Tipo<BR></th>              
+                                    <th class="table-th">Descripcion<BR></th>
+                                    <th class="table-th">Subtotal<BR></th>
+                                </tr>
+                            </thead>              
+                            <tbody>
+                            <%  @lista.item_calendarios.each do |item| %>
+                             <%if item.calendario.curso.nil? %>
+
+                                <%if item.calendario.programa.nil? %>
+                                    <tr>
+                                      <td class="tamaño_imagen">               
+                                        <%=image_tag  item.calendario.seminario.imagen %>
+                                      </td>
+                                      <td class="agenda-events">
+                                            <div class="capa-exterior">
+                                              <div class="capa-interior">
+                                                Seminario
+                                              </div>
+                                            </div>
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="capa-exterior">
+                                              <div class="capa-interior">
+                                                <%= item.calendario.seminario.titulo %>
+                                              </div>
+                                            </div>
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="capa-exterior">
+                                              <div class="capa-interior">
+                                                <%= number_to_currency item.total_precio %>
+                                              </div>
+                                            </div>
+                                    </td>
+                                </tr>
+                              <%else%>
+                                <tr>
+                                    <td class="tamaño_imagen">               
+                                          <%=image_tag  item.calendario.programa.imagen %>
+                                    </td>
+                                     <td class="agenda-events">
+                                            <div class="capa-exterior">
+                                              <div class="capa-interior">
+                                                Programa
+                                              </div>
+                                            </div>
+                                    </td>
+                                    <td class="agenda-events">
+                      <div class="capa-exterior">
+                                              <div class="capa-interior">
+                                                <%= item.calendario.programa.titulo %>
+                                              </div>
+                                            </div>
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="capa-exterior">
+                                              <div class="capa-interior">
+                                                <%= number_to_currency item.total_precio %>
+                                              </div>
+                                            </div>
+                                    </td>
+
+                                </tr>
+                                <% end %> 
+                        <%else%>
+                                <!-- Single event in a single day -->
+                                <tr>
+                                    <td class="tamaño_imagen">               
+                    <%=image_tag  item.calendario.curso.image %>
+                                    </td>
+                                     <td class="agenda-events">
+                                            <div class="capa-exterior">
+                                              <div class="capa-interior">
+                                                Curso
+                                              </div>
+                                            </div>
+                                    </td>
+                                    <td class="agenda-events">
+                      <div class="capa-exterior">
+                                              <div class="capa-interior">
+                                                <%= item.calendario.curso.titulo %>
+                                              </div>
+                                            </div>
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="capa-exterior">
+                                              <div class="capa-interior">
+                                                <%= number_to_currency item.total_precio %>
+                                              </div>
+                                            </div>
+                                    </td>
+                                </tr>
+                                 <% end %>
+
+                                <% end %>    
+                            </tbody>
+                        </table>
+                    </div>
+                </p>
+            </div>            
+    <br>    
+    <h3 style="text-align: right;">Total: <%= number_to_currency @lista.total_precio %></h3>
+    </div>  
+</div>
+<br>
+
+
+                <div class="container">
+                    <div class="row">
+                    <div class="col-xs-6 col-md-2"></div>
+                        <div class="col-xs-6 col-md-8">
+                              <div align="center">
+                                    
+                                    <div class="col-xs-6 col-md-4">
+                                        <%= link_to "Volver", curso_path, class: 'btn-mas_informacion btn-default' %>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4">
+                                
+                                         <%= link_to 'Cancelar', @lista, method: :delete, data: {confirm: 'Estas Seguro de eliminar tu registro' } , class: 'btn-mas_informacion btn-default'  %>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4">
+                                    <%= link_to'Registrar', inscripcion_path, method: :get , class: 'btn-mas_informacion btn-default'%>
+                                    </div>
+                                </div>
+                        </div>
+                    </div><!-- /.row -->
+
+                </div>
+        </div>
+        <br>
+<br>
+<br>

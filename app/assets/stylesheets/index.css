@@ -1,0 +1,501 @@
+
+
+
+/*          CONCEPTO DE EDUCACION CONTINUA              */
+#cuadro_que_es{
+	margin: 4% 7% 6% 7%;
+}
+#educacion-mensaje-box{
+	transform: translateY(300px);
+    transition: transform 1s cubic-bezier(0, 0, 0.1, 1);
+    opacity:0;
+}
+
+#educacion-mensaje-box.deslizar{
+    opacity:1;
+    transform: translateY(0px);
+}
+
+#contenedor_que_es{
+	border-left: solid 3px #008ca5;
+	width: 100%;
+    height: 55px;
+}
+.cuadro_mensaje_que_es{
+	font-weight: 700;
+    color: #008ca5;
+    text-align: justify;
+    font-family: 'Arvo', serif;
+    height: 53px;
+    /*border-bottom: solid 2px;*/
+    margin-left: 1%;
+}
+#educacion-mensaje{
+	color: #008ca5;
+    font-weight: 100;
+    font-size: 1.3em;
+    text-align: justify;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-left: 1%;
+    margin-top: 1%;
+
+}
+/*				   CORPORATIVO							*/
+
+.parallax{
+	width: 100%;
+	height: auto;
+	background-image: url(Index/Corporativo/chica-corporativa.jpg);
+	background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	position: relative;
+}
+.corporativo-index{
+	display: inline-flex;
+    width: 94%;
+    /* margin-top: 4%; */
+    margin: 8% 12% 6% 5%;
+}
+#corporativo-titulo-caja{
+	width: 100%;
+    margin-left: 10%;
+}
+
+#titulo1{
+    font-family: 'Arvo', serif;
+    font-size: 5em;
+    color: #fff;
+    /* margin: 0px 19px 22px 19px; */
+    text-align: justify;
+}
+
+#corporativo-mensaje1{
+	font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2em;
+    text-align: initial;
+    color: #ffffffd9;
+}
+
+.corporativo-button {
+    width: 37%;
+    background: none;
+    border-radius: 6px;
+    border: 1px solid #FFFFFF;
+    font-size: 2em;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 1% 3%;
+    margin: 3% 30% 3% 3%;
+}
+.corporativo-button:hover {
+	background: #ffffff61;
+}
+
+#corporativo-link{
+	margin-bottom: 4%;
+    margin-top: 2%;
+    width: 100%;
+}
+/*            CONTENEDOR OFERTAS Y EVENTOS     */
+
+.contenedor-oferta-eventos{
+	display: inline-flex;
+	width: 100%;
+	background: #e7e7e7;
+}
+/*                 OFERTA ACADEMICA                     */
+
+.ofertaAcademica-main-container {
+	width: 60%;
+	margin: 4% 4%;
+}
+
+.ofertaAcademica-recuadro{
+	width: 100%;
+	/*background-image: url(Index/OfertaAcademica/4);*/
+	display: inline-flex;
+}
+
+#ofertaAcademica-titulo-container {
+	width: 100%;
+	margin-bottom:  6%;
+	margin-left: 6%;
+}
+
+#oferta-titulo{
+    font-family: 'Arvo', serif;
+    font-size: 33px;
+    color: #000638;
+    text-align: center;
+    border-bottom: 1px solid #808080a6;
+    width: 90%;
+}
+/*
+#oferta-titulo:after {
+    background-color: #208896;
+    opacity: 1;
+  */  
+}
+
+.ofertaAcademica-ofertas{
+    text-align: center;
+    width: 35%;
+    display: inline-block;
+}
+
+.enlaces{
+	padding-bottom: 118px;
+	border-bottom: 1px ;
+}
+
+.enlaces:hover{
+	border-bottom: 5px solid #82c7cd;
+    padding-bottom: 110px;
+    transition: ease 0.5s;
+}
+
+.ofertaAcademica-img {
+	width: 100%;
+	height: auto;
+	overflow:hidden;
+	-webkit-transition:all .9s ease; /* Safari y Chrome */
+	-moz-transition:all .9s ease; /* Firefox */
+	-o-transition:all .9s ease; /* IE 9 */
+	-ms-transition:all .9s ease; /* Opera */
+	margin-bottom: -19px;
+}
+
+.ofertaAcademica-img:hover{
+-webkit-transform:scale(1.15);
+-moz-transform:scale(1.15);
+-ms-transform:scale(1.15);
+-o-transform:scale(1.15);
+transform:scale(1.15);
+}
+
+.ofertaAcademica-text{
+	width: 100%;
+    height: auto;
+    font-size: 1.3em;
+    margin-top: 7%;
+    margin-bottom: 0%;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.contenedor-imagens{
+	width: 51%;
+    margin: 0% 25%;
+}
+
+
+/*					PROXIMOS EVENTOS					*/
+
+#proximosEventos{
+	width: 40%;
+	margin: 4% 4%;
+}
+.contenedor-titulo-eventos{
+	border-bottom: solid 1px;
+	width: 96%;
+}
+#titulo-proximos-eventos{
+	margin-bottom: 0% !important;
+    width: 100%;
+    text-align: center;
+    font-family: 'Arvo', serif;
+    font-size: 33px;
+    color: #000638;
+}
+.listas-eventos-proximos{
+	margin-top: 5%;
+	/*list-style: none;*/
+    padding-left: 0%;
+	list-style-image: url(Index/Proximos_eventos/lista-estilo.png);
+	width:  96%;
+}
+
+.contenido_lista_proximo{
+	border-bottom: 1px solid gray;
+	margin-top: 3%;
+}
+.texto-contenido{
+	font-family: 'Source Sans Pro', sans-serif;
+	text-align: justify;
+	font-size: 1.3em;
+	margin-bottom: 1% !important;
+}
+
+/*                 SECTORES DE INTERES                   */
+
+.sectores-main-container {
+	margin: 0px 0px 50px 0px;
+	
+}
+.sectores-titulo-container {
+	width: 70%;
+	min-width: 750px;
+	max-width: 1500px;
+	margin: 50px auto;
+	border-radius: 7px;
+	border: 1px solid gray;
+}
+.sectores-titulo-container h1 {
+	width: 100%;
+	text-align: center;
+	color: #2b2b2b;
+	margin: 10px 0px;
+	font-size: 42px;
+	font-family: 'Arvo', serif;
+}
+.sectores-contaier {
+	width: 70%;
+	margin: 0px auto;
+	background-color: lightgray;
+	transition: all 0.3s ease 0s;
+}
+.sector-img-container {
+	width: 20%;
+	margin: 0px 2.5%;
+	text-align: center;
+	
+	clip: rect(0px, 0px, 45px, 0px)
+}
+.sectores-ofertas-container {
+	width: 100%;
+	min-width: 1000px;
+	max-width: 1500px;
+	margin: 20px auto auto auto;
+	padding: 20px 10px;
+	display: flex;
+	background-color: lightgray;
+}	
+.prospectos-container {
+	width: 100%;
+	height: 50px;
+	min-width: 1000px;
+	max-width: 1500px;
+	padding: 0px 0px 50px 0px;
+	display: flex;
+	background-color: lightgray;
+	transition: height 0.1s ease;
+}
+.prospectos-container-poblado {
+	height: 288.45px;
+}
+
+.sector-img {
+	margin: 0px auto;
+}
+.sector-btn {
+	margin: 0px;
+	border: 0px;
+	width: 16.67%;
+	padding: 10px;
+	background-color: lightgray;
+}
+.sector-btn:focus {
+	outline: 0px;
+	opacity: 0.7;
+	border: 1px solid gray;
+}
+.sectores-img {
+	width: 100%;
+}
+.sectores-img:hover {
+	opacity: 0.7;
+}
+
+/*                 SECTORES DE INTERES                   */
+/*					MAS de 								*/
+
+#mas-de-container{
+	background-color: #001a43;
+	width: 100%;    
+	height: 255px;
+    background-size: cover;
+    display: inline-flex;
+    background-attachment: fixed;
+}
+.contenedor-numero-letra{
+	display: inline-flex;
+	width: 27%;
+	margin: 4% auto;
+}
+#mas-de{
+	width: 19%;
+	margin: 6% 0% 6% 3%;
+}
+#mas-de h2{
+	width: auto;
+    margin-bottom: 0%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 4em;
+    color: white;
+    font-weight: 1000;
+    text-align: left;
+    position: relative;
+}
+
+.mas-text{
+	width: 72%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2.1em;
+    color: white;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#num1,#num2,#num3{
+	width: 28%;
+	font-family: 'Source Sans Pro', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: #ffcc00;
+}
+#num1{
+	margin: 8% auto;
+}
+#num2{
+	margin: 4% auto;
+}
+#num3{
+	margin: 4% 2% 4% 0%;
+}
+#conten2,#conten3{
+	margin: 5.2% auto;
+}
+/*              LOGO PIE DE PAGINA          */
+
+.logo-pie {
+	width: 15%;
+}
+
+@media  only screen and (max-width: 1200px){
+
+	.corporativo-index {
+    	display: inline-block;
+    	width: 100%;
+    	margin: 4% 0% 0% 0%;
+	}
+	#corporativo-titulo-caja{
+		width: 100%;
+    	margin-left: 0%;
+	}
+	#titulo1{
+		font-size: 4em;
+		text-align: center;
+	}
+	#corporativo-mensaje1{
+		font-size: 1.5em;
+		text-align: center;
+	}
+	#corporativo-link {
+    	margin-bottom: 0%;
+    	margin-top: 0%;
+    	width: 100%;
+	}
+	.corporativo-button{
+		margin: 3% 3% 3% 3%;
+		    width: 19vw;
+	}
+	.parallax {
+    	height: auto;
+	}
+    .contenedor-oferta-eventos{
+    	display: inline-block;
+    }
+    .ofertaAcademica-main-container{
+    	    width: 100%;
+    }
+    #proximosEventos {
+    	width: auto;
+    	margin: 4% 11%;
+	}
+	.contenedor-titulo-eventos {
+        	width: 100%;
+	}
+	.listas-eventos-proximos {
+    	width: 100%;
+	}
+	.sectores-contaier{
+		width: 100%;
+    	margin: 0% 0%;
+	}
+	.sectores-ofertas-container{
+		width: 100%;
+    	min-width: 0%;
+    	max-width: 100%;
+    	display: inline-flex;
+	}
+	.prospectos-container-poblado{
+		height: 36vh;
+	}
+	.prospectos-container{
+		width: 100%;
+    	height: 100%;
+    	min-width: 100%;
+    	max-width: 100%;
+    	display: inline-flex;
+	}
+	.contenedor-numero-letra{
+		display: inline-block;
+	}
+	.timer{
+		width: 100%;
+   		font-size: 2em;
+    	text-align: center;
+	}
+	#num1,#num2,#num3 {
+    	margin: 0%;
+    	width: 100%;
+	}
+	.mas-text {
+    width: 100%;
+    font-size: 1.5em;
+    text-align: center;
+	}
+	#conten2, #conten3 {
+    	margin: 4% auto;
+	}
+	#mas-de h2{
+		font-size: 2.5em;
+		width: 100%;
+		margin-top: 17%;
+    	margin-bottom: 20%;
+	}
+	#mas-de-container{
+		height: auto;
+	}
+	.logo-pie {
+    	width: 29%;
+	}
+}
+
+@media  only screen and (max-width: 768px){
+  .main-container{
+    display: none;
+    div.prueba_habilitar {
+      display: inline;
+    }
+  }
+  .navbar{
+    display: none;
+    div.prueba_habilitar {
+      display: inline;
+    }
+  }
+  .error{
+    display: inline;
+    height: 20vh;
+    width: 100%;
+    font-family: arvo;
+  }
+  .logoEcErr{
+    background-image: url(final.jpg);
+    height: 100vh;
+    width: 170vh;
+  }
+} 

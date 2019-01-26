@@ -1,0 +1,23 @@
+function getProspectos(sector) {
+	//$(".sector-btn").addClass("sectores-selected");
+	$.ajax({
+		type : 'GET',
+
+		url : 'getProspectos/' + sector,
+		success : exitoProspectoImg,
+		dataType: 'json'
+	});
+}
+function exitoProspectoImg(data, textStatus, jqXHR) {
+	$(".prospectos-container").html("");
+	if (data["prospectos"].length > 0) {
+		$(".prospectos-container").addClass("prospectos-container-poblado");
+		document.getElementById("recuadro-img-prospectos").style.height = "245px";
+		for (i in data["prospectos"]) {
+			$(".prospectos-container").append(data["prospectos"][i]);
+		}
+	} else {
+		$(".prospectos-container").removeClass("prospectos-container-poblado");
+		//$(".prospectos-container").append("<h3>No hay cursos por el momento.</h3>");
+	}	
+}

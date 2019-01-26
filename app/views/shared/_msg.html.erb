@@ -1,0 +1,9 @@
+<% unless @pedido.errors.empty? %>
+	<script type="text/javascript">
+		<% @pedido.errors.full_messages.each do |msg| %>
+	     	 toastr.error('<%= msg %>' )
+			
+
+		<% end %>
+	</script>		
+<% end %>

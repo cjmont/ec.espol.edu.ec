@@ -1,0 +1,99 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119438848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119438848-2');
+</script>
+
+<div class="bxslider"></div>
+<br><br><br>
+<div class="hidden-md hidden-lg hidden-xs" style="display: none;" >
+    <br>
+</div>
+<div class="hidden-xs " style="text-align: center; margin-top: 67px !important;">
+<br>
+        <!--Slider index-->
+
+<div class="slider">
+    <div class="slide_viewer">
+        <div class="slide_group">
+            <div class="slide">
+                <a target=""><%= image_tag('Nosotros/b1.jpg', style: "width:100vw;",class: "imagen-Superior") %> </a>
+            </div>
+        </div>
+    </div> 
+</div>
+
+<div class="row mision-main-container">
+    <h2 class="titulo-h2 efectos">Nuestra Misión</h2>
+    <div class="raya-azul efectos"></div>
+    <p class="mision-p efectos">Educación Continua tiene la misión de ofrecer programas de capacitación, actualización y perfeccionamiento a profesionales y organizaciones del sector productivo, público y privado del Ecuador, asegurándoles excelencia en el proceso de enseñanza – aprendizaje, investigación, cultura, valores éticos y desarrollo del espíritu emprendedor.</p>
+</div>
+ <div class="row valores-main-container">
+    <h2 class="titulo-h2">Nuestros Valores</h2>
+    <div class="raya-azul"></div>
+    <div class="valores-icons-container">
+        <%= image_tag('Nosotros/excelencia', class: "valores-icons") %>
+        <%= image_tag('Nosotros/mistica', class: "valores-icons") %>
+        <%= image_tag('Nosotros/compromiso', class: "valores-icons") %>
+        <%= image_tag('Nosotros/honestidad', class: "valores-icons") %>
+        <%= image_tag('Nosotros/equidad', class: "valores-icons") %>
+    </div>
+</div>
+ <div class="row politicas-main-container">
+    <h2 class="titulo-h2">Nuestras Políticas</h2>
+    <div class="raya-azul"></div>
+    <div class="politica-img-container" >
+        <div style="display: flex;width: 20%;text-align: left;">
+            <div class="imagen-interna">
+                <%= image_tag('Nosotros/para-nosotros', class: "imagen-politicas") %>
+            </div>
+        </div>
+        <div style="display: flex;width: 20%;">
+            <div class="imagen-interna">
+                <%= image_tag('Nosotros/para-nosotros1', class: "imagen-politicas") %>
+            </div>
+        </div>
+        <div style="display: flex;width: 20%;">
+            <div class="imagen-interna">
+                <%= image_tag('Nosotros/para-nosotros2', class: "imagen-politicas") %>
+            </div>
+        </div>
+        <div style="display: flex;width: 20%;">
+            <div class="imagen-interna">
+                <%= image_tag('Nosotros/para-nosotros3', class: "imagen-politicas") %>
+            </div>
+        </div>
+        <div style="display: flex;width: 20%;">
+            <div class="imagen-interna">
+                <%= image_tag('Nosotros/para-nosotros4', class: "imagen-politicas") %>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function ($){
+        $(window).scroll(function(){
+          var ban = false;
+          if ($(window).scrollTop() >= 193 &&  ban == false) {
+            $(".efectos").addClass("deslizar");
+            ban = true;
+          }
+        });
+      });
+  
+</script>
+<%= javascript_include_tag "popupindex" %>
+<%= javascript_include_tag "slideindex" %>
+
+<%= stylesheet_link_tag 'nosotros'%> 
+<%= stylesheet_link_tag 'popupindex'%> 
+<%= stylesheet_link_tag 'slider'%>
+<%= stylesheet_link_tag 'honest', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag 'animate', media: 'all', 'data-turbolinks-track' => true %>

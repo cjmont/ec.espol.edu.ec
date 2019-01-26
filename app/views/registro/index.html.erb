@@ -1,0 +1,492 @@
+
+<div class="bxslider"></div>
+<br><br><br>
+<div class="hidden-md hidden-lg hidden-xs" style="display: none;" >
+    <br>
+</div>
+<br><br><br>
+<br><br><br>
+
+
+<div style="margin-bottom: 0%;"></div>
+<a style="margin: 0% 10% 4% 9%;" href="http://cec.espol.edu.ec/detalle/<%= @prospecto_id.gsub(" ","-") %>?">
+	<button style="border-radius: 6px;padding: 0.5% 1% 0.5% 1%;" class="registro-btn-regresar" type="button">Regresar</button>
+</a>
+
+<div style="margin-bottom: 1%">
+	
+</div>
+
+<form method="POST" action="/crear_cuenta" id="registro-form">
+	<div class="title-container">
+		<h1 id="titulo3" class="estilo-titulos" style="color: white;font-family: 'Arvo', serif;" >FORMULARIO DE REGISTRO</h2>
+	</div>
+	<div class="container-all">
+		<% if @prospecto.tipo != "Charla" && @prospecto.tipo != "Webinario"%>
+			<div id="prueba2">
+				<div id="container-datos-personales" >
+					<div class="titulo-datos-personales" >
+						<h1 id="titulo1" class="estilo-titulos" style="margin: 3% 0% 2% 0%">DATOS PERSONALES</h1>
+						<div id="margen-datos-personales">
+							<h1 id="horizontal" style="border-bottom: 1px transparent #808080a6;margin-top: 5%;width: 100%"></h1>
+						</div>
+					</div>
+
+					<div id="nombre-apellido">
+						<div id="container-nombre" class="registro-input-container">
+							<h2 id="subcontainer-nombre" class="fuente" >Nombres</h2>
+							<% if @usuario %>
+										<input class="form-control requerido" type="text" name="nombres" value="<%= @usuario.nombres %>">
+									<% else %>
+										<input id="campo-nombre" class="form-control requerido" type="text" name="nombres" >
+									<% end %>
+									<h6 style="color: #92505b;font-size: 40px;">*</h6>
+						</div>
+						<div style="width: 4%;"></div>
+						<div id="container-apellido" class="registro-input-container">
+							<h2 class="fuente" style="width: 40%">Apellidos</h2>
+							<% if @usuario %>
+											<input class="form-control requerido" type="text" name="apellidos" value="<%= @usuario.apellidos %>">
+										<% else %>
+											<input id="campo-apellido" class="form-control requerido" type="text" name="apellidos" >
+										<% end %>
+										<h6 style="color: #92505b;font-size: 40px;">*</h6>
+						</div>
+					</div>
+					<div id="container-identificacion-nacimiento" >
+						<div style="width: 100%;display: flex;">
+							<h2 class="fuente" style="width: 30%">Identificación</h2>
+							<div style="width: 75%;display: flex;">
+								<div style="width: 35%;text-align: left;margin-left: 1%;">
+								<% if @usuario %>
+										<select class="form-control" name="tipo_id" id="tipo_id" >
+											<% if @usuario.tipo_id == "CEDULA" %>
+												<option value="CEDULA" selected>Cédula</option>
+											<% else %>
+												<option value="CEDULA">Cédula</option>
+											<% end %>
+
+											<% if @usuario.tipo_id == "PASAPORTE" %>
+												<option value="PASAPORTE" selected>Pasaporte</option>
+											<% else %>
+												<option value="PASAPORTE">Pasaporte</option>
+											<% end %>
+										</select>
+									<% else %>
+										<select class="form-control" name="tipo_id" id="tipo_id" style="height: 59%;padding: 0%">
+											<option value="CEDULA">Cédula</option>
+											<option value="PASAPORTE">Pasaporte</option>
+										</select>
+									<% end %>
+							</div>
+							<div style="width: 2%"></div>
+							<div id="campo-num-identificacion">
+								<% if @usuario %>
+											<input class="form-control requerido" type="text" id="num_id" name="identificacion" value="<%= @usuario.identificacion %>">
+										<% else %>
+											<input class="form-control requerido" type="text" id="num_id" name="identificacion">
+										<% end %>
+										<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+							</div>
+
+						</div>
+						<div style="width: 4%;"></div>
+						<div id="container-nacimiento-sexo" >
+							<div id="container-fecha">
+								<h2 id="label-fecha-nac" class="fuente">Fecha de Nacimiento</h2>
+								<div id="cuadro-fecha">
+									<% if @usuario %>
+										<input class="form-control requerido" type="date" id="fecha_nac" name="fecha_nac" value="<%= @usuario.fecha_nac %>" >
+									<% else %>
+										<input class="form-control requerido" type="date" id="fecha_nac" name="fecha_nac" style="padding: 0%;height: 59%;">
+									<% end %>
+									<h6 style="color: #92505b;font-size: 40px;">*</h6>
+								</div>
+							</div>
+							<div style="width: 2%"></div>
+						</div>
+					</div>
+						<div id="container-ciudad-sexo">
+						<div style="width: 100%;display: flex;">
+							<h2 id="label-ciudad" class="fuente" style="width:30%;">Ciudad</h2>
+							<div style="display: flex;width: 65.9%;">
+								<% if @usuario %>
+										<input class="form-control requerido" type="text" name="ciudad" value="<%= @usuario.ciudad.titleize %>">
+									<% else %>
+										<input id="campo-ciudad" class="form-control requerido" type="text" name="ciudad">
+									<% end %>
+									<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+						</div>
+						<div style="width: 4%;"></div>
+							<div id="container-sexo" >
+								<h2 id="titulo-sexo" class="fuente">Sexo</h2>
+								<div id="cuadro-sexo">
+									<% if @usuario %>
+										<select class="form-control" name="sexo" >
+											<% if @usuario.sexo == "MASCULINO" %>
+												<option value="MASCULINO" selected>Masculino</option>
+											<% else %>
+												<option value="MASCULINO">Masculino</option>
+											<% end %>
+
+											<% if @usuario.sexo == "FEMENINO" %>
+												<option value="FEMENINO" selected>Femenino</option>
+											<% else %>
+												<option value="FEMENINO">Femenino</option>
+											<% end %>
+
+											<% if @usuario.sexo == "LGTB" %>
+												<option value="LGTB" selected>LGTB</option>
+											<% else %>
+												<option value="LGTB">LGTB</option>
+											<% end %>
+
+											<% if @usuario.sexo == "OTRO" %>
+												<option value="OTRO" selected>Otro</option>
+											<% else %>
+												<option value="OTRO">Otro</option>
+											<% end %>
+										</select>
+									<% else %>
+									<select id="camp-sexo" class="form-control" name="sexo" style="height: 59%;padding: 0%">
+										<option value="MASCULINO">Masculino</option>
+										<option value="FEMENINO">Femenino</option>
+										<option value="LGTB">LGTB</option>
+										<option value="OTRO">Otro</option>
+									</select>
+									<% end %>
+									<h6></h6>
+								</div>
+							</div>
+					</div>
+					<div id="container-domicilio-ingreso" >
+						<div style="width: 100%;display: flex;">
+							<h2 id="label-domicilio" class="fuente" >Domicilio</h2>
+							<div style="display: flex;width: 94%;">
+								<% if @usuario %>
+										<input class="form-control requerido" type="text" name="domicilio" value="<%= @usuario.domicilio %>">
+									<% else %>
+										<input id="campo-domicilio" class="form-control requerido" style="width: 94%;" type="text" name="domicilio">
+									<% end %>
+									<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+						</div>
+						<div style="width: 4%;"></div>
+						<div style="width: 100%;display: flex;">
+							<h2 id="titulo-ingreso" class="fuente" >Nivel de Ingreso</h2>
+							<div style="width: 80%;">
+								<% if @usuario %>
+									<select class="form-control" name="nivel_ingreso">
+										<% if @usuario.nivel_ingreso == "BAJO" %>
+											<option value="BAJO" selected>Menor a $400</option>
+										<% else %>
+											<option value="BAJO">Menor a $400</option>
+										<% end %>
+
+										<% if @usuario.nivel_ingreso == "MEDIO_BAJO" %>
+											<option value="MEDIO_BAJO" selected>$400 - $700</option>
+										<% else %>
+											<option value="MEDIO_BAJO">$400 - $700</option>
+										<% end %>
+
+										<% if @usuario.nivel_ingreso == "MEDIO" %>
+											<option value="MEDIO" selected>$700 - $1200</option>
+										<% else %>
+											<option value="MEDIO">$700 - $1200</option>
+										<% end %>
+
+										<% if @usuario.nivel_ingreso == "MEDIO_ALTO" %>
+											<option value="MEDIO_ALTO" selected>$1200 - $2000</option>
+										<% else %>
+											<option value="MEDIO_ALTO">$1200 - $2000</option>
+										<% end %>
+
+										<% if @usuario.nivel_ingreso == "ALTO" %>
+											<option value="ALTO" selected>Mayor a $2000</option>
+										<% else %>
+											<option value="ALTO">Mayor a $2000</option>
+										<% end %>
+									</select>
+								<% else %>
+									<select id="campo-ingreso" class="form-control" name="nivel_ingreso" style="height: 59%;width: 95%;padding: 0%">
+										<option value="BAJO">Menor a $400</option>
+										<option value="MEDIO_BAJO">$400 - $700</option>
+										<option value="MEDIO">$700 - $1200</option>
+										<option value="MEDIO_ALTO">$1200 - $2000</option>
+										<option value="ALTO">Mayor a $2000</option>
+									</select>
+								<% end %>
+								<h6></h6>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="container-informacion-profesional-contacto" style="margin-top: 2%">
+					<div id="container-informacion-profesional" style="width: 100%">
+						<div id="titulo2" class="estilo-titulos" style="margin-bottom: 4%">
+							INFORMACIÓN PROFESIONAL
+						</div>
+						<div style="width: 100%;display: flex;">
+							<h2 id="label-nivel-academico" class="fuente" >Nivel Académico</h2>
+							<div style="width: 66%;">
+								<% if @usuario %>
+										<select class="form-control" name="nivel_academico" >
+											<% if @usuario.nivel_academico == "BACHILLER" %>
+												<option value="BACHILLER" selected>Bachiller</option>
+											<% else %>
+												<option value="BACHILLER">Bachiller</option>
+											<% end %>
+
+											<% if @usuario.nivel_academico == "TERCER_NIVEL" %>
+												<option value="TERCER_NIVEL" selected>Tercer nivel</option>
+											<% else %>
+												<option value="TERCER_NIVEL">Tercer nivel</option>
+											<% end %>
+
+											<% if @usuario.nivel_academico == "CUARTO_NIVEL" %>
+												<option value="CUARTO_NIVEL" selected>Cuarto nivel</option>
+											<% else %>
+												<option value="CUARTO_NIVEL">Cuarto nivel</option>
+											<% end %>
+										</select>
+									<% else %>
+										<select id="campo-nivel" class="form-control" name="nivel_academico" style="height: 59%;padding: 0%">
+											<option value="BACHILLER">Bachiller</option>
+											<option value="TERCER_NIVEL">Tercer nivel</option>
+										<option value="CUARTO_NIVEL">Cuarto nivel</option>
+										</select>
+									<% end %>
+									<h6></h6>
+							</div>
+						</div>
+						<div style="width: 100%;display: flex;">
+							<h2 class="fuente" style="width: 30%">Título</h2>
+							<div style="width: 69%;display: flex;" >
+								<% if @usuario %>
+										<input class="form-control requerido" type="text" name="titulo" style="margin-left: 10px;margin-right: 10px;" value="<%= @usuario.titulo %>">
+									<% else %>
+										<input id="campo-titulo" class="form-control requerido" type="text" name="titulo">
+									<% end %>
+									<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+						</div>
+						<div style="width: 100%;display: flex;">
+							<h2 class="fuente" style="width: 30%;line-height: 1.1;">Institución de Procedencia</h2>
+							<div style="width: 66%;display: flex;">
+								<% if @usuario %>
+									<input class="form-control" type="text" name="institucion_proce" value="<%= @usuario.institucion_proce %>">
+								<% else %>
+									<input id="campo-procedencia" class="form-control" type="text" name="institucion_proce">
+								<% end %>
+								<h6> </h6>
+							</div>
+							
+						</div>
+						<div style="width: 100%;display: flex;">
+							<h2 class="fuente" style="width: 30%">Profesión</h2>
+							<div style="width: 69%;display: flex;">
+								<% if @usuario %>
+										<input class="form-control requerido" type="text" name="profesion" value="<%= @usuario.profesion %>">
+									<% else %>
+										<input id="campo-profesion" class="form-control requerido" type="text" name="profesion" >
+									<% end %>
+									<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+						</div>
+
+					</div>
+					<div id="borde" style="width: 2%;border-right: 1px solid gray;"></div>
+					
+					<div style="width: 2%;"></div>
+					<div id="informacion-de-contacto" style="width: 100%">
+						<div id="separador-contacto"></div>
+						<div id="titulo2" class="estilo-titulos" style="margin-bottom: 4%;">
+							INFORMACIÓN DE CONTACTO
+						</div>
+						<div style="width: 100%;display: flex;">
+							<h2 class="fuente" style="width: 30%">Email</h2>
+							<div style="width: 69%;display: flex;">
+								<% if @usuario %>
+										<input class="form-control requerido" type="email" id="email" name="email" value="<%= @usuario.email %>">
+									<% else %>
+										<input class="form-control requerido" type="email" id="email" name="email">
+									<% end %>
+									<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+						</div>
+						<div style="width: 100%;display: flex;">
+							<h2 id="label-telefono-fijo" class="fuente" >Teléfono Móvil</h2>
+							<div style="width: 69%;display: flex;">
+								<% if @usuario %>
+									<input class="form-control requerido" type="number" name="movil" value="<%= @usuario.movil %>">
+								<% else %>
+									<input id="campo-movil" class="form-control requerido" type="number" name="movil">
+								<% end %>
+								<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+						</div>
+						<div style="width: 100%;display: flex;">
+							<h2 class="fuente" style="width: 30%">Teléfono Fijo</h2>
+							<div style="width: 66%;display: flex;">
+								<% if @usuario %>
+									<input class="form-control" type="number" name="telefono" value="<%= @usuario.telefono %>">
+									<% else %>
+										<input id="campo-fijo" class="form-control" type="number" name="telefono">
+									<% end %>
+								<h6></h6>
+							</div>
+						</div>
+						<div style="width: 100%;display: flex;">
+							<h2 class="fuente" style="width: 30%;line-height: 1.1;">Teléfono fijo de empresa</h2>
+							<div style="width: 66%;display: flex;">
+								<% if @usuario %>
+									<input class="form-control" type="number" name="telefono_emp" value="<%= @usuario.telefono_emp %>">
+								<% else %>
+									<input id="campo-fijo-empresa" class="form-control" type="number" name="telefono_emp">
+								<% end %>
+								<h6> </h6>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% else %>
+			<h1 id="horizontal" style="border-bottom: 1px transparent #808080a6;margin-top: 5%;width: 100%"></h1>
+          		<div id="container-nombre" class="registro-input-container">
+            			<h2 id="subcontainer-nombre" class="fuente" >Nombres</h2>
+                  			<input id="campo-nombre" class="form-control requerido" type="text" name="nombres" >
+                			<h6 style="color: #92505b;font-size: 40px;">*</h6>
+          		</div>
+
+	          <div id="container-apellido" class="registro-input-container">
+	            <h2 class="fuente" style="width: 40%">Apellidos</h2>
+	                <input id="campo-apellido" class="form-control requerido" type="text" name="apellidos" >
+	                  <h6 style="color: #92505b;font-size: 40px;">*</h6>
+	         </div>
+	         <div id="container-identificacion-nacimiento" >
+						<div style="width: 100%;display: flex;">
+							<h2 class="fuente" id="cc-charla" style="width: 30%"></h2>
+							<div style="width: 75%;display: flex;">
+								<div style="width: 35%;text-align: left;margin-left: 1%;">
+								<% if @usuario %>
+										<select class="form-control" name="tipo_id" id="tipo_id" >
+											<% if @usuario.tipo_id == "CEDULA" %>
+												<option value="CEDULA" selected>Cédula</option>
+											<% else %>
+												<option value="CEDULA">Cédula</option>
+											<% end %>
+
+											<% if @usuario.tipo_id == "PASAPORTE" %>
+												<option value="PASAPORTE" selected>Pasaporte</option>
+											<% else %>
+												<option value="PASAPORTE">Pasaporte</option>
+											<% end %>
+										</select>
+									<% else %>
+										<select class="form-control" name="tipo_id" id="tipo_id" style="height: 59%;padding: 0%">
+											<option value="CEDULA">Cédula</option>
+											<option value="PASAPORTE">Pasaporte</option>
+										</select>
+									<% end %>
+							</div>
+							<div style="width: 2%"></div>
+							<div id="campo-num-identificacion">
+								<% if @usuario %>
+											<input class="form-control requerido" type="text" id="num_id" name="identificacion" value="<%= @usuario.identificacion %>">
+										<% else %>
+											<input class="form-control requerido" type="text" id="num_id" name="identificacion">
+										<% end %>
+										<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+							</div>
+
+						</div>
+					</div>
+
+	         <div style="width: 100%;display: flex;">
+            <h2 id="label-telefono-fijo" class="fuente" >Teléfono Móvil</h2>
+            <div style="width: 69%;display: flex;">
+                <input id="campo-movil" class="form-control requerido" type="number" name="movil">
+              <h6 style="color: #92505b;font-size: 40px;">*</h6>
+            </div>
+          </div>
+
+           <div style="width: 100%;display: flex;">
+            <h2 class="fuente" style="width: 30%">Email</h2>
+            <div style="width: 69%;display: flex;">
+                  <input class="form-control requerido" type="email" id="email" name="email">
+                <h6 style="color: #92505b;font-size: 40px;">*</h6>
+            </div>
+          </div>
+
+          <div style="width: 100%;display: flex;">
+							<h2 class="fuente" style="width: 30%; display: flex;">Empresa</h2>
+							<div style="width: 69%;display: flex;">
+								<% if @usuario %>
+									<input class="form-control requerido" type="text" name="empresa" value="<%= @usuario.empresa %>">
+								<% else %>
+									<input id="campo-procedencia" class="form-control requerido" type="text" name="empresa">
+								<% end %>
+								<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+							
+						</div>
+
+          <div style="width: 100%;display: flex;">
+							<h2 class="fuente" style="width: 30%">Cargo</h2>
+							<div style="width: 69%;display: flex;">
+								<% if @usuario %>
+										<input class="form-control requerido" type="text" name="cargo" value="<%= @usuario.cargo %>">
+									<% else %>
+										<input id="campo-profesion" class="form-control requerido" type="text" name="cargo" >
+									<% end %>
+									<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+					<div id="container-ciudad-sexo">
+						<div style="width: 100%;display: flex;">
+							<h2 id="label-ciudad" class="fuente" style="width:30%;">Ciudad</h2>
+							<div style="display: flex;width: 65.9%;">
+								<% if @usuario %>
+										<input class="form-control requerido" type="text" name="ciudad" value="<%= @usuario.ciudad.titleize %>">
+									<% else %>
+										<input id="campo-ciudad" class="form-control requerido" type="text" name="ciudad">
+									<% end %>
+									<h6 style="color: #92505b;font-size: 40px;">*</h6>
+							</div>
+						</div>
+					</div>
+		</div>
+
+          <input type="hidden" name="prospecto_tipo" id="prospecto_tipo" value="Landing Page">
+
+		<% end %>
+
+		<div class="registro-enviar">
+			<input type="hidden" name="prospecto_id" value="<%= @prospecto_id %>">
+			<input type="hidden" name="registro_participante" value="<%= @registro_participante %>">
+			<input type="hidden" name="evento" value="<%= @evento %>">
+
+			<% if @usuario %>
+				<input type="hidden" name="usuario_id" value="<%= @usuario.id %>">
+			<% end %>
+				<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+			<button style="border-radius: 6px;padding: 0.5% 2% 0.5% 2%;" class="registro-btn-enviar" id="enviar-btn" type="button">Enviar</button>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+	if (screen.width>700){
+			document.getElementById("cc-charla").innerHTML = "Identificación";
+		}
+		else{
+			document.getElementById("cc-charla").innerHTML = "C.C.";
+		}
+</script>
+
+<%= stylesheet_link_tag 'registro.css'%> 
+<%= javascript_include_tag "registro" %>
+
+
