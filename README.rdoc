@@ -1,28 +1,32 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# ec.espol.edu.ec
 
 
-Please feel free to use a different markup language if you do not plan to run
+http://cec.espol.edu.ec/siec.png
+
+http://cec.espol.edu.ec/siec2.png
+
+Sitio web administrable para la gestion de Educacion Continua ESPOL.
+
+Este website cuenta con lo siguiente:
+
+* registro de usuarios en cursos
+
+* generacion de pdf del curso registrado
+
+* Envio de Correo con la API de Gmail
+
+* Administracion de contenido con ActiveAdmin
+
+* Roles de usuario con cancan
+
+#ASPECTOS TECNICOS
+
+* Ruby On Rails 4.2
+
+* MySQL
+
+
+
+
+ec.espol.edu.ec
 <tt>rake doc:app</tt>.
